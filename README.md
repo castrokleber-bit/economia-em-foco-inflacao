@@ -17,7 +17,7 @@ avaliar. (Mesma fronteira da ferramenta do Copom.)
   média dos núcleos (só IPCA) e índice de difusão.
 - Monta a nota com núcleo, se disponível; sem núcleo, caso contrário.
 - Exibe a nota numa interface minimalista com identidade CNI e botão copiar.
-- Sugere uma leitura para a indústria (rascunho).
+- Sugere uma leitura para a indústria (em desenvolvimento).
 
 ## Documentação
 
