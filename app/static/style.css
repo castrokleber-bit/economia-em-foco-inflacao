@@ -20,7 +20,7 @@
   --erro-borda:  #FCA5A5;
   --erro-texto:  #991B1B;
   --raio:        8px;
-  --fonte: "Neo Sans Pro", "Manrope", "Segoe UI", system-ui, sans-serif;
+  --fonte: "Neo Sans Pro", "Inter", "Segoe UI", system-ui, sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -258,8 +258,6 @@ body {
   padding: 20px 24px;
   font-size: 15px;
   line-height: 1.9;
-  font-variant-ligatures: none;
-  font-feature-settings: "liga" 0, "calt" 0;
 }
 
 /* ── Proveniência ───────────────────────────────────────────── */
