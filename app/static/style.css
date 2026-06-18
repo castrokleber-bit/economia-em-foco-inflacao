@@ -258,6 +258,8 @@ body {
   padding: 20px 24px;
   font-size: 15px;
   line-height: 1.9;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
 }
 
 /* ── Proveniência ───────────────────────────────────────────── */
