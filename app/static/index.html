@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Economia em Foco — Inflação · CNI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="cabecalho">
+  <div class="cabecalho-inner">
+    <img src="/static/img/logo-cni.png" alt="CNI" class="logo" onerror="this.style.display='none'">
+    <div class="titulo-app">
+      <span class="titulo-principal">Economia em Foco</span>
+      <span class="titulo-sep">·</span>
+      <span class="titulo-sub">Inflação</span>
+    </div>
+  </div>
+</header>
+
+<main class="conteudo">
+
+  <form id="form-gerar" class="controles" novalidate>
+    <div class="campo-grupo">
+      <span class="campo-label">Indicador</span>
+      <div class="radio-grupo">
+        <label class="radio-opcao">
+          <input type="radio" name="indicador" value="IPCA" checked>
+          <span>IPCA</span>
+        </label>
+        <label class="radio-opcao">
+          <input type="radio" name="indicador" value="IPCA-15">
+          <span>IPCA-15</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="campo-grupo">
+      <label class="campo-label" for="mes">Mês de referência</label>
+      <input type="month" id="mes" name="mes" required class="input-mes">
+    </div>
+
+    <button type="submit" class="btn-gerar" id="btn-gerar">Gerar nota</button>
+  </form>
+
+  <div id="loading" class="loading" style="display:none">
+    <div class="spinner"></div>
+    <span>Buscando dados nas APIs IBGE e BCB…</span>
+  </div>
+
+  <div id="erro-bloco" class="erro-bloco" style="display:none">
+    <strong>Erro ao gerar nota:</strong> <span id="erro-msg"></span>
+  </div>
+
+  <section id="resultado" class="resultado" style="display:none">
+
+    <div class="nota-card">
+      <div class="nota-cabecalho">
+        <span class="nota-rotulo">Nota de WhatsApp</span>
+        <button type="button" class="btn-copiar" id="btn-copiar">Copiar</button>
+      </div>
+      <div id="nota-texto" class="nota-texto"></div>
+    </div>
+
+    <details class="provenencia-container">
+      <summary class="provenencia-toggle">Proveniência dos dados</summary>
+      <div id="provenencia" class="provenencia"></div>
+    </details>
+
+    <div class="leitura-card" id="leitura-card" style="display:none">
+      <div class="leitura-cabecalho">
+        <span class="leitura-badge">RASCUNHO</span>
+        <span class="leitura-titulo">Leitura para a Indústria</span>
+        <span class="leitura-aviso">(revisar antes de usar)</span>
+      </div>
+      <div id="leitura-texto" class="leitura-texto"></div>
+    </div>
+
+  </section>
+
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
