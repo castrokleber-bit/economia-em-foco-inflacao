@@ -7,7 +7,7 @@ Impactos esperados: valores publicados na Comunicação Social do IBGE abr/2026.
 """
 import pytest
 from fontes.modelo import ItemInflacao
-from nucleo.impacto import calcular_impacto, grupos_relevantes, top_subitem
+from nucleo.impacto import calcular_impacto, grupos_relevantes, grupos_queda, top_subitem, top_subitem_queda
 
 
 # ---------------------------------------------------------------------------
@@ -116,6 +116,54 @@ def test_top_subitem_nivel_correto():
 def test_top_subitem_retorna_none_se_nivel_ausente():
     s2 = ItemInflacao(2, "item nivel2", 2, 3.0, 10.0, "x")
     assert top_subitem([s2], nivel=4) is None
+
+
+def test_top_subitem_ignora_impacto_negativo():
+    """top_subitem não retorna item com deflação — só impacto positivo."""
+    s_neg = ItemInflacao(1, "item negativo", 4, -2.0, 5.0, "x")   # impacto -0.10
+    s_pos = ItemInflacao(2, "item positivo", 4, 1.0, 5.0, "x")    # impacto 0.05
+    assert top_subitem([s_neg, s_pos], nivel=4) is s_pos
+    assert top_subitem([s_neg], nivel=4) is None
+
+
+def test_grupos_queda_retorna_deflacionarios():
+    """grupos_queda retorna grupos com impacto <= -threshold, ordenados mais negativo primeiro."""
+    grupos = [
+        ItemInflacao(1, "1.Alta A",   1,  2.0, 20.0, "x"),   # impacto  0.40
+        ItemInflacao(2, "2.Alta B",   1,  1.0, 15.0, "x"),   # impacto  0.15
+        ItemInflacao(3, "3.Queda C",  1, -1.5, 10.0, "x"),   # impacto -0.15
+        ItemInflacao(4, "4.Queda D",  1, -0.3,  5.0, "x"),   # impacto -0.015 (abaixo do threshold)
+    ]
+    grupos.sort(key=lambda x: x.impacto, reverse=True)
+    qs = grupos_queda(grupos, top_n=2, threshold=0.05)
+    assert len(qs) == 1                   # só "Queda C" passa o threshold de 0.05
+    assert qs[0].cat_id == 3
+
+
+def test_grupos_queda_ordenado_mais_negativo_primeiro():
+    grupos = [
+        ItemInflacao(1, "1.X", 1, -2.0, 10.0, "x"),   # impacto -0.20
+        ItemInflacao(2, "2.Y", 1, -1.0, 10.0, "x"),   # impacto -0.10
+    ]
+    qs = grupos_queda(grupos, top_n=2, threshold=0.05)
+    assert qs[0].cat_id == 1   # -0.20 vem primeiro
+
+
+def test_grupos_queda_lista_sem_deflacao():
+    grupos = [ItemInflacao(1, "1.A", 1, 1.0, 20.0, "x")]
+    assert grupos_queda(grupos, top_n=1, threshold=0.05) == []
+
+
+def test_top_subitem_queda_retorna_mais_negativo():
+    s1 = ItemInflacao(1, "a nivel4",   4, -2.0, 10.0, "x")   # impacto -0.20
+    s2 = ItemInflacao(2, "b nivel4",   4, -0.5, 10.0, "x")   # impacto -0.05
+    s3 = ItemInflacao(3, "c nivel4",   4,  1.0, 10.0, "x")   # impacto  0.10 (positivo)
+    assert top_subitem_queda([s1, s2, s3], nivel=4, threshold=0.05) is s1
+
+
+def test_top_subitem_queda_none_sem_deflacao_significativa():
+    s = ItemInflacao(1, "x", 4, -0.01, 10.0, "x")   # impacto -0.001 (abaixo do threshold)
+    assert top_subitem_queda([s], nivel=4, threshold=0.05) is None
 
 
 # ---------------------------------------------------------------------------

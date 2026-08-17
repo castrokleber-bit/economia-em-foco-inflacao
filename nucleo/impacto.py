@@ -30,11 +30,40 @@ def top_subitem(
     nivel: int = 4,
 ) -> ItemInflacao | None:
     """
-    Retorna o item de maior impacto no nível solicitado, ou None se vazio.
+    Retorna o subitem de maior impacto positivo no nível solicitado, ou None se vazio.
     nivel=4 → subitem próprio; nivel=2 → subgrupo (fallback se não houver nivel 4).
     """
-    candidatos = [s for s in subitens if s.nivel == nivel]
+    candidatos = [s for s in subitens if s.nivel == nivel and s.impacto > 0]
     return candidatos[0] if candidatos else None
+
+
+def grupos_queda(
+    grupos: list[ItemInflacao],
+    top_n: int = 1,
+    threshold: float = 0.05,
+) -> list[ItemInflacao]:
+    """
+    Retorna até top_n grupos com maior deflação (impacto <= -threshold p.p.),
+    ordenados do mais negativo ao menos negativo.
+    A entrada deve estar ordenada por impacto desc (padrão de ibge.buscar_resultado).
+    """
+    queda = [g for g in grupos if g.impacto <= -threshold]
+    queda.sort(key=lambda x: x.impacto)  # mais negativo primeiro
+    return queda[:top_n]
+
+
+def top_subitem_queda(
+    subitens: list[ItemInflacao],
+    nivel: int = 4,
+    threshold: float = 0.05,
+) -> ItemInflacao | None:
+    """
+    Retorna o subitem de maior deflação (impacto <= -threshold) no nível solicitado.
+    """
+    candidatos = [s for s in subitens if s.nivel == nivel and s.impacto <= -threshold]
+    if not candidatos:
+        return None
+    return min(candidatos, key=lambda x: x.impacto)
 
 
 def calcular_difusao(

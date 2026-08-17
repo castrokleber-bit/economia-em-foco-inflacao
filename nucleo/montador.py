@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from typing import Optional
 
 from fontes.modelo import ItemInflacao, ResultadoInflacao
-from nucleo.impacto import grupos_relevantes, top_subitem
+from nucleo.impacto import grupos_relevantes, grupos_queda, top_subitem, top_subitem_queda
 
 
 # ---------------------------------------------------------------------------
@@ -20,7 +20,9 @@ from nucleo.impacto import grupos_relevantes, top_subitem
 @dataclass
 class ConfigNota:
     top_n_grupos: int = 3
-    threshold_grupos: float = 0.05   # p.p. mínimo para citar um grupo
+    threshold_grupos: float = 0.05   # p.p. mínimo para citar um grupo (alta)
+    top_n_queda: int = 1
+    threshold_queda: float = 0.05    # p.p. mínimo para citar deflação
     assinatura: str = "SIECON"        # "ECON" ou "SIECON"
     emoji_titulo: str = "\U0001f6a8"      # 🚨
     emoji_resultado: str = "\U0001f6a9"   # 🚩
@@ -28,6 +30,7 @@ class ConfigNota:
     emoji_acumulado: str = "\U0001f4c8"   # 📈
     emoji_nucleo: str = "\U0001f4c9"      # 📉
     emoji_difusao: str = "\U0001f4ca"     # 📊
+    emoji_queda: str = "\U0001f7e2"       # 🟢 — usado nos parágrafos de deflação
 
 
 # ---------------------------------------------------------------------------
@@ -85,17 +88,24 @@ def _strip(nome: str) -> str:
 
 
 def _artigo_de(nome: str) -> str:
-    """Heuristica de genero para 'da' / 'do' antes do nome do item."""
-    # remove acentos para comparacao simples
+    """Heuristica de genero/numero para 'da(s)' / 'do(s)' antes do nome do item.
+    O nucleo semantico do nome (que define genero/numero) e a primeira
+    palavra, nao a ultima — ex.: "alimentação no domicílio" (fem.) ou
+    "tubérculos, raízes e legumes" (masc. plural)."""
+    import re
     import unicodedata
     nl = unicodedata.normalize("NFD", nome.lower())
     nl_ascii = "".join(c for c in nl if unicodedata.category(c) != "Mn")
-    if any(nl_ascii.startswith(f) for f in _FEMININAS):
-        return "da"
-    # ultima palavra termina em 'a' e nome tem ate 3 palavras
-    if nl_ascii.split()[-1].endswith("a") and len(nl_ascii.split()) <= 3:
-        return "da"
-    return "do"
+    primeira = re.split(r"[ ,(]", nl_ascii.strip(), maxsplit=1)[0]
+    plural = primeira.endswith("s") and len(primeira) > 2
+    singular = primeira[:-1] if plural else primeira
+    feminino = (
+        any(primeira.startswith(f) for f in _FEMININAS)
+        or singular.endswith(("a", "cao", "sao", "dade", "gem"))
+    )
+    if feminino:
+        return "das" if plural else "da"
+    return "dos" if plural else "do"
 
 
 def _direcao(v: float, alta: str = "alta", queda: str = "queda") -> str:
@@ -127,6 +137,108 @@ def _pp_longo(v: float) -> str:
 def _pp(v: float) -> str:
     """'0,16 p.p.' — versao curta para grupos subsequentes."""
     return f"{_fmt(v)} p.p."
+
+
+# ---------------------------------------------------------------------------
+# Variação de frases por trimestre — evita repetição entre divulgações
+#
+# Regra de indexação: _idx_var(mes_ref) → 0=Q1, 1=Q2, 2=Q3, 3=Q4.
+# Índice 1 (Q2: abr-jun) = frases originais, preservando os golden files
+# de IPCA abr/2026 e IPCA-15 mai/2026 sem alteração.
+# ---------------------------------------------------------------------------
+
+def _idx_var(mes_ref: str) -> int:
+    """Retorna índice 0-3 com base no trimestre de mes_ref (AAAAMM)."""
+    return (int(mes_ref[4:6]) - 1) // 3 % 4
+
+
+# Abertura do parágrafo de alta (grupos de inflação — 1º grupo)
+_ABR_ALTA = [
+    "O desempenho do {ind} em {mes} foi marcado pela *{dir} do grupo {nome}*",  # Q1
+    "O resultado de {mes} *reflete a {dir} do grupo {nome}*",                    # Q2
+    "Em {mes}, destaca-se a *{dir} do grupo {nome}*",                            # Q3
+    "*A {dir} do grupo {nome}* foi o principal fator do {ind} de {mes}",         # Q4
+]
+
+# Conector para o 2º grupo (singular)
+_CON_SG = [
+    "Na sequência, merece atenção o grupo",   # Q1
+    "Em seguida, destaca-se o grupo",          # Q2
+    "Também se destaca o grupo",               # Q3
+    "Outro destaque é o grupo",                # Q4
+]
+
+# Conector para 2º e 3º grupos (plural)
+_CON_PL = [
+    "Na sequência, merecem atenção os grupos",   # Q1
+    "Em seguida, destacam-se os grupos",          # Q2
+    "Também se destacam os grupos",               # Q3
+    "Outros destaques incluem os grupos",         # Q4
+]
+
+# Parágrafo do subgrupo de maior impacto positivo (nivel 2)
+_SUBGRUPO_ALTA = [
+    "No nível de subgrupos, o maior destaque é a {dir} {art} *{nome}* ({var}% e impacto de {imp}).",                    # Q1
+    "Também merece destaque a {dir} {art} *{nome}* ({var}% e impacto de {imp}), subgrupo de maior impacto no índice do mês.",  # Q2
+    "Entre os subgrupos, a {dir} {art} *{nome}* ({var}% e impacto de {imp}) registra o maior impacto do período.",      # Q3
+    "A {dir} {art} *{nome}* ({var}% e impacto de {imp}) se destaca como o subgrupo de maior impacto no mês.",           # Q4
+]
+
+# Parágrafo do subgrupo de maior deflação (nivel 2)
+_SUBGRUPO_QUEDA = [
+    "Na direção oposta, a queda {art} *{nome}* ({var}% e impacto de {imp}) representa a maior pressão deflacionária entre os subgrupos.",     # Q1
+    "Em sentido contrário, destaca-se a queda {art} *{nome}* ({var}% e impacto de {imp}), subgrupo de maior deflação no índice do mês.",      # Q2
+    "Entre os subgrupos, a queda {art} *{nome}* ({var}% e impacto de {imp}) exerceu a maior contenção sobre o índice.",                       # Q3
+    "Como principal fator desinflacionário entre os subgrupos, a queda {art} *{nome}* ({var}% e impacto de {imp}) atuou sobre o índice.",     # Q4
+]
+
+# Parágrafo do item de maior impacto positivo (nivel 3)
+_ITEM_ALTA = [
+    "No nível de itens, o maior destaque é a {dir} {art} *{nome}* ({var}% e impacto de {imp}).",               # Q1
+    "Também merece destaque a {dir} {art} *{nome}* ({var}% e impacto de {imp}), item de maior impacto no índice do mês.",  # Q2
+    "Entre os itens, a {dir} {art} *{nome}* ({var}% e impacto de {imp}) registra o maior impacto do período.", # Q3
+    "A {dir} {art} *{nome}* ({var}% e impacto de {imp}) se destaca como o item de maior impacto no mês.",      # Q4
+]
+
+# Parágrafo do item de maior deflação (nivel 3)
+_ITEM_QUEDA = [
+    "Na direção oposta, a queda {art} *{nome}* ({var}% e impacto de {imp}) representa a maior pressão deflacionária entre os itens.",    # Q1
+    "Em sentido contrário, destaca-se a queda {art} *{nome}* ({var}% e impacto de {imp}), item de maior deflação no índice do mês.",     # Q2
+    "Entre os itens, a queda {art} *{nome}* ({var}% e impacto de {imp}) exerceu a maior contenção sobre o índice.",                      # Q3
+    "Como principal fator desinflacionário entre os itens, a queda {art} *{nome}* ({var}% e impacto de {imp}) atuou sobre o índice.",    # Q4
+]
+
+# Parágrafo do subitem de maior impacto positivo (nivel 4)
+_SUB_ALTA = [
+    "No nível de subitens, o maior destaque é a {dir} {art} *{nome}* ({var}% e impacto de {imp}).",              # Q1
+    "Também merece destaque a {dir} {art} *{nome}* ({var}% e impacto de {imp}), subitem de maior impacto individual no índice do mês.",  # Q2
+    "Entre os subitens, a {dir} {art} *{nome}* ({var}% e impacto de {imp}) registra o maior impacto individual do período.",             # Q3
+    "A {dir} {art} *{nome}* ({var}% e impacto de {imp}) se destaca como o subitem de maior impacto individual no mês.",                  # Q4
+]
+
+# Abertura do parágrafo de queda — 1 grupo
+_ABR_QUEDA_1 = [
+    "Na direção oposta, o grupo *{nome}* recuou",                                           # Q1
+    "Em sentido contrário, destaca-se a queda do grupo *{nome}*",                           # Q2
+    "Como fator de contenção, o grupo *{nome}* registrou deflação",                         # Q3
+    "Atuando como contraponto, o grupo *{nome}* pressionou o índice para baixo",            # Q4
+]
+
+# Parágrafo de queda — 2 grupos (texto completo, inclui os números)
+_ABR_QUEDA_2 = [
+    "Na direção oposta, os grupos *{n1}* (variação de {v1}% e impacto de {i1}) e *{n2}* (variação de {v2}% e impacto de {i2}) pressionaram o índice para baixo.",                      # Q1
+    "Em sentido contrário, destacam-se as quedas dos grupos *{n1}* (variação de {v1}% e impacto de {i1}) e *{n2}* (variação de {v2}% e impacto de {i2}), que contribuíram para reduzir o índice do mês.",  # Q2
+    "Como fatores de contenção, os grupos *{n1}* (variação de {v1}% e impacto de {i1}) e *{n2}* (variação de {v2}% e impacto de {i2}) exerceram pressão deflacionária sobre o índice.",                   # Q3
+    "Em contraponto, os grupos *{n1}* (variação de {v1}% e impacto de {i1}) e *{n2}* (variação de {v2}% e impacto de {i2}) contribuíram para reduzir o índice do mês.",                                   # Q4
+]
+
+# Parágrafo do subitem de maior deflação
+_SUB_QUEDA = [
+    "Na direção oposta, a queda {art} *{nome}* ({var}% e impacto de {imp}) representa a maior pressão deflacionária individual do período.",           # Q1
+    "Em sentido contrário, destaca-se a queda {art} *{nome}* ({var}% e impacto de {imp}), subitem de maior deflação individual no índice do mês.",     # Q2
+    "Entre os subitens, a queda {art} *{nome}* ({var}% e impacto de {imp}) exerceu a maior contenção individual sobre o índice.",                      # Q3
+    "Como principal fator desinflacionário individual, a queda {art} *{nome}* ({var}% e impacto de {imp}) atuou sobre o índice do mês.",               # Q4
+]
 
 
 # ---------------------------------------------------------------------------
@@ -185,20 +297,25 @@ def bloco_resultado(r: ResultadoInflacao, cfg: ConfigNota) -> str:
 
 
 def bloco_explicacao(r: ResultadoInflacao, cfg: ConfigNota) -> str:
-    """Paragrafos dos grupos + subitem de destaque; pode conter \\n\\n interno."""
+    """Paragrafos dos grupos + subitens de destaque; pode conter \\n\\n interno.
+    Ordem: inflação (grupos → subitem) → deflação (grupos → subitem).
+    Frases variam por trimestre para evitar repetição entre divulgações."""
     grupos = grupos_relevantes(
         r.grupos, top_n=cfg.top_n_grupos, threshold=cfg.threshold_grupos
     )
     if not grupos:
         return ""
 
+    idx = _idx_var(r.mes_ref)
     g1 = grupos[0]
     g1n = _strip(g1.nome)
     dir_g1 = _direcao(g1.variacao)
 
+    abertura = _ABR_ALTA[idx].format(
+        ind=r.indicador, mes=_mes(r.mes_ref), dir=dir_g1, nome=g1n
+    )
     texto = (
-        f"{cfg.emoji_explicacao} O resultado de {_mes(r.mes_ref)} "
-        f"*reflete a {dir_g1} do grupo {g1n}*, "
+        f"{cfg.emoji_explicacao} {abertura}, "
         f"com variação de {_fmt(g1.variacao)}% e impacto de "
         f"{_pp_longo(g1.impacto)} no índice do mês."
     )
@@ -206,9 +323,8 @@ def bloco_explicacao(r: ResultadoInflacao, cfg: ConfigNota) -> str:
     if len(grupos) == 2:
         g2 = grupos[1]
         g2n = _strip(g2.nome)
-        # _pp() já termina em "." (abreviatura "p.p."); não acrescentar segundo ponto
         texto += (
-            f" Em seguida, destaca-se o grupo {g2n}, "
+            f" {_CON_SG[idx]} {g2n}, "
             f"com variação de {_fmt(g2.variacao)}% "
             f"e impacto de {_pp(g2.impacto)}"
         )
@@ -217,7 +333,7 @@ def bloco_explicacao(r: ResultadoInflacao, cfg: ConfigNota) -> str:
         g2n = _strip(g2.nome)
         g3n = _strip(g3.nome)
         texto += (
-            f" Em seguida, destacam-se os grupos {g2n}, "
+            f" {_CON_PL[idx]} {g2n}, "
             f"com variação de {_fmt(g2.variacao)}% "
             f"e impacto de {_pp(g2.impacto)}, "
             f"e {g3n}, "
@@ -225,21 +341,113 @@ def bloco_explicacao(r: ResultadoInflacao, cfg: ConfigNota) -> str:
             f"e impacto de {_pp(g3.impacto)}"
         )
 
-    # Subitem de maior impacto individual (nivel 4)
+    partes = [texto]
+
+    # --- INFLAÇÃO: subgrupo de maior impacto (nivel 2) ---
+    subgrupo = top_subitem(r.subitens, nivel=2)
+    if subgrupo is not None:
+        sgn = _strip(subgrupo.nome).lower()
+        art_sg = _artigo_de(sgn)
+        dir_sg = _direcao(subgrupo.variacao)
+        partes.append(
+            f"{cfg.emoji_explicacao} "
+            + _SUBGRUPO_ALTA[idx].format(
+                dir=dir_sg, art=art_sg, nome=sgn,
+                var=_fmt(subgrupo.variacao), imp=_pp(subgrupo.impacto),
+            )
+        )
+
+    # --- INFLAÇÃO: item de maior impacto (nivel 3) ---
+    item = top_subitem(r.subitens, nivel=3)
+    if item is not None:
+        itn = _strip(item.nome).lower()
+        art_it = _artigo_de(itn)
+        dir_it = _direcao(item.variacao)
+        partes.append(
+            f"{cfg.emoji_explicacao} "
+            + _ITEM_ALTA[idx].format(
+                dir=dir_it, art=art_it, nome=itn,
+                var=_fmt(item.variacao), imp=_pp(item.impacto),
+            )
+        )
+
+    # --- INFLAÇÃO: subitem de maior impacto positivo (nivel 4) ---
     subitem = top_subitem(r.subitens, nivel=4)
     if subitem is not None:
         sn = _strip(subitem.nome).lower()
-        artigo = _artigo_de(sn)
+        art = _artigo_de(sn)
         dir_sub = _direcao(subitem.variacao)
-        texto_sub = (
-            f"{cfg.emoji_explicacao} Também merece destaque a {dir_sub} "
-            f"{artigo} *{sn}* "
-            f"({_fmt(subitem.variacao)}% e impacto de {_pp(subitem.impacto)}), "
-            f"subitem de maior impacto individual no índice do mês."
+        partes.append(
+            f"{cfg.emoji_explicacao} "
+            + _SUB_ALTA[idx].format(
+                dir=dir_sub, art=art, nome=sn,
+                var=_fmt(subitem.variacao), imp=_pp(subitem.impacto),
+            )
         )
-        return f"{texto}\n\n{texto_sub}"
 
-    return texto
+    # --- DEFLAÇÃO: grupos com maior queda ---
+    gqs = grupos_queda(r.grupos, top_n=cfg.top_n_queda, threshold=cfg.threshold_queda)
+    if gqs:
+        if len(gqs) == 1:
+            gq = gqs[0]
+            gqn = _strip(gq.nome)
+            abertura_q = _ABR_QUEDA_1[idx].format(nome=gqn)
+            texto_queda = (
+                f"{cfg.emoji_queda} {abertura_q}, "
+                f"com variação de {_fmt(gq.variacao)}% e impacto de "
+                f"{_pp(gq.impacto)} no índice do mês."
+            )
+        else:
+            gq1, gq2 = gqs[0], gqs[1]
+            texto_queda = (
+                f"{cfg.emoji_queda} "
+                + _ABR_QUEDA_2[idx].format(
+                    n1=_strip(gq1.nome), v1=_fmt(gq1.variacao), i1=_pp(gq1.impacto),
+                    n2=_strip(gq2.nome), v2=_fmt(gq2.variacao), i2=_pp(gq2.impacto),
+                )
+            )
+        partes.append(texto_queda)
+
+    # --- DEFLAÇÃO: subgrupo de maior queda (nivel 2) ---
+    subgrupo_q = top_subitem_queda(r.subitens, nivel=2, threshold=cfg.threshold_queda)
+    if subgrupo_q is not None:
+        sqgn = _strip(subgrupo_q.nome).lower()
+        art_sqg = _artigo_de(sqgn)
+        partes.append(
+            f"{cfg.emoji_queda} "
+            + _SUBGRUPO_QUEDA[idx].format(
+                art=art_sqg, nome=sqgn,
+                var=_fmt(subgrupo_q.variacao), imp=_pp(subgrupo_q.impacto),
+            )
+        )
+
+    # --- DEFLAÇÃO: item de maior queda (nivel 3) ---
+    item_q = top_subitem_queda(r.subitens, nivel=3, threshold=cfg.threshold_queda)
+    if item_q is not None:
+        iqn = _strip(item_q.nome).lower()
+        art_iq = _artigo_de(iqn)
+        partes.append(
+            f"{cfg.emoji_queda} "
+            + _ITEM_QUEDA[idx].format(
+                art=art_iq, nome=iqn,
+                var=_fmt(item_q.variacao), imp=_pp(item_q.impacto),
+            )
+        )
+
+    # --- DEFLAÇÃO: subitem de maior queda (nivel 4) ---
+    subitem_q = top_subitem_queda(r.subitens, nivel=4, threshold=cfg.threshold_queda)
+    if subitem_q is not None:
+        sqn = _strip(subitem_q.nome).lower()
+        art_q = _artigo_de(sqn)
+        partes.append(
+            f"{cfg.emoji_queda} "
+            + _SUB_QUEDA[idx].format(
+                art=art_q, nome=sqn,
+                var=_fmt(subitem_q.variacao), imp=_pp(subitem_q.impacto),
+            )
+        )
+
+    return "\n\n".join(partes)
 
 
 def bloco_acumulado(r: ResultadoInflacao, cfg: ConfigNota) -> str:

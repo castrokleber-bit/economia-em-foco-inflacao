@@ -189,7 +189,8 @@ def test_projecoes_omitidas_sem_dados():
 
 def test_assinatura_econ():
     r = _resultado_simples()
-    nota = compor_nota(r)
+    cfg = ConfigNota(assinatura="ECON")
+    nota = compor_nota(r, cfg)
     assert "Superintendência de Economia (ECON)" in nota
 
 
@@ -230,3 +231,115 @@ def test_artigo_energia():
     )
     nota = compor_nota(r)
     assert "da *energia elétrica residencial*" in nota
+
+
+def test_grupo_com_deflacao_aparece_na_nota():
+    """Grupo com impacto <= -0,05 p.p. gera parágrafo 'Em sentido contrário'."""
+    grupos = [
+        ItemInflacao(1, "1.Alta A",  1,  2.0, 20.0, "fixture"),   # impacto  0.40
+        ItemInflacao(2, "2.Queda B", 1, -1.5, 10.0, "fixture"),   # impacto -0.15
+    ]
+    grupos.sort(key=lambda x: x.impacto, reverse=True)
+    r = _resultado_simples(grupos=grupos, subitens=[])
+    nota = compor_nota(r)
+    assert "Em sentido contrário" in nota
+    assert "queda do grupo" in nota
+    assert "Queda B" in nota
+    assert "-1,50%" in nota
+    assert "-0,15 p.p." in nota
+
+
+def test_grupo_sem_deflacao_significativa_nao_aparece():
+    """Grupo com impacto entre 0 e -0,05 p.p. não gera parágrafo de deflação."""
+    grupos = [
+        ItemInflacao(1, "1.Alta A",   1,  2.0, 20.0, "fixture"),  # impacto  0.40
+        ItemInflacao(2, "2.Queda B",  1, -0.1,  5.0, "fixture"),  # impacto -0.005
+    ]
+    grupos.sort(key=lambda x: x.impacto, reverse=True)
+    r = _resultado_simples(grupos=grupos, subitens=[])
+    nota = compor_nota(r)
+    assert "Em sentido contrário" not in nota
+
+
+def test_subitem_com_deflacao_aparece_na_nota():
+    """Subitem com impacto <= -0,05 p.p. gera parágrafo de maior deflação."""
+    subitens = [
+        ItemInflacao(1, "gasolina",  4,  2.0, 5.0, "fixture"),    # impacto  0.10
+        ItemInflacao(2, "energia",   4, -2.0, 5.0, "fixture"),    # impacto -0.10
+    ]
+    r = _resultado_simples(subitens=subitens)
+    nota = compor_nota(r)
+    assert "maior deflação individual" in nota
+    assert "energia" in nota
+    assert "-2,00%" in nota
+
+
+def test_deflacao_nao_aparece_em_ipca_normal():
+    """No cenário padrão (todos positivos), não há parágrafo de deflação."""
+    r = _resultado_simples()
+    nota = compor_nota(r)
+    assert "Em sentido contrário" not in nota
+    assert "maior deflação" not in nota
+
+
+def test_subgrupo_nivel2_aparece_na_nota():
+    """Subitem de nivel 2 com impacto positivo gera parágrafo de subgrupo."""
+    subitens = [
+        ItemInflacao(1, "11.Alimentação no domicílio", 2, 2.0, 10.0, "fixture"),  # impacto 0.20
+        ItemInflacao(2, "1101.Cereais e derivados",    3, 3.0,  5.0, "fixture"),  # impacto 0.15
+        ItemInflacao(3, "1101001.Arroz",               4, 5.0,  2.0, "fixture"),  # impacto 0.10
+    ]
+    r = _resultado_simples(subitens=subitens)
+    nota = compor_nota(r)
+    assert "subgrupo de maior impacto" in nota
+    assert "alimentação no domicílio" in nota
+    assert "item de maior impacto" in nota
+    assert "subitem de maior impacto" in nota
+
+
+def test_item_nivel3_aparece_na_nota():
+    """Item de nivel 3 com impacto positivo gera parágrafo de maior impacto."""
+    subitens = [
+        ItemInflacao(1, "1101.Cereais e derivados",  3, 3.0, 5.0, "fixture"),  # impacto 0.15
+        ItemInflacao(2, "1101001.Arroz",              4, 5.0, 2.0, "fixture"),  # impacto 0.10
+    ]
+    r = _resultado_simples(subitens=subitens)
+    nota = compor_nota(r)
+    assert "item de maior impacto" in nota
+    assert "cereais e derivados" in nota
+    assert "subitem de maior impacto" in nota
+    assert "arroz" in nota
+
+
+def test_item_nivel3_queda_aparece_na_nota():
+    """Item nivel 3 com deflação gera parágrafo de maior deflação entre itens."""
+    grupos = [
+        ItemInflacao(1, "1.Alta A", 1, 2.0, 20.0, "fixture"),
+        ItemInflacao(2, "2.Queda B", 1, -2.0, 10.0, "fixture"),  # impacto -0.20
+    ]
+    grupos.sort(key=lambda x: x.impacto, reverse=True)
+    subitens = [
+        ItemInflacao(3, "1101.Cereais e derivados", 3, -3.0, 5.0, "fixture"),  # impacto -0.15
+    ]
+    r = _resultado_simples(grupos=grupos, subitens=subitens)
+    nota = compor_nota(r)
+    assert "item de maior deflação" in nota
+    assert "cereais e derivados" in nota
+
+
+def test_ordem_inflacao_antes_deflacao():
+    """Parágrafos de alta aparecem antes dos parágrafos de queda na nota."""
+    grupos = [
+        ItemInflacao(1, "1.Alta A", 1, 2.0, 20.0, "fixture"),
+        ItemInflacao(2, "2.Queda B", 1, -2.0, 10.0, "fixture"),
+    ]
+    grupos.sort(key=lambda x: x.impacto, reverse=True)
+    subitens = [
+        ItemInflacao(3, "gasolina", 4, 2.0, 5.0, "fixture"),    # alta subitem
+        ItemInflacao(4, "energia", 4, -2.0, 5.0, "fixture"),    # queda subitem
+    ]
+    r = _resultado_simples(grupos=grupos, subitens=subitens)
+    nota = compor_nota(r)
+    pos_alta = nota.index("subitem de maior impacto")
+    pos_queda = nota.index("subitem de maior deflação")
+    assert pos_alta < pos_queda

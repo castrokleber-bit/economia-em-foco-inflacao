@@ -1,15 +1,27 @@
 🚨 *IPCA-15 MAIO/2026*
 
-🚩 O IPCA-15 registrou *alta de 0,62%* em maio de 2026, após avanço de 0,89% em abril.
+🚩 O IPCA-15 registrou *alta de 0,62%* em maio de 2026, após avanço de 0,89% em abril e alta de 0,36% em maio de 2025.
 
 🔴 O resultado de maio *reflete a alta do grupo Alimentação e bebidas*, com variação de 1,38% e impacto de 0,30 ponto percentual (p.p.) no índice do mês. Em seguida, destacam-se os grupos Habitação, com variação de 1,03% e impacto de 0,16 p.p., e Saúde e cuidados pessoais, com variação de 1,05% e impacto de 0,14 p.p.
 
+🔴 Também merece destaque a alta da *alimentação no domicílio* (1,73% e impacto de 0,27 p.p.), subgrupo de maior impacto no índice do mês.
+
+🔴 Também merece destaque a alta dos *tubérculos, raízes e legumes* (15,49% e impacto de 0,12 p.p.), item de maior impacto no índice do mês.
+
 🔴 Também merece destaque a alta da *energia elétrica residencial* (2,16% e impacto de 0,09 p.p.), subitem de maior impacto individual no índice do mês.
+
+🟢 Em sentido contrário, destaca-se a queda do grupo *Transportes*, com variação de -0,33% e impacto de -0,07 p.p. no índice do mês.
+
+🟢 Em sentido contrário, destaca-se a queda dos *transportes* (-0,33% e impacto de -0,07 p.p.), subgrupo de maior deflação no índice do mês.
+
+🟢 Em sentido contrário, destaca-se a queda dos *combustíveis (veículos)* (-1,47% e impacto de -0,09 p.p.), item de maior deflação no índice do mês.
+
+🟢 Em sentido contrário, destaca-se a queda da *gasolina* (-1,32% e impacto de -0,07 p.p.), subitem de maior deflação individual no índice do mês.
 
 📈 O *IPCA-15 acumulado em 12 meses* até maio ficou em *4,64%*, acima dos 4,37% registrados nos 12 meses encerrados em abril.
 
 📊 O *índice de difusão*, que mede a disseminação das altas de preços entre os itens que compõem o IPCA-15, ficou em *65,1%*.
 
-_*Superintendência de Economia (ECON)*_
+_*Superintendência de Inteligência Econômica (SIECON)*_
 _*Diretoria de Desenvolvimento Industrial (DDI)*_
 _*Confederação Nacional da Indústria (CNI)*_
