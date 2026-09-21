@@ -59,6 +59,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+        # Habilita o Pages na primeira execução, em vez de exigir que alguém
+        # troque a Source para "GitHub Actions" no Settings. Sem isto o job
+        # falha com "Get Pages site failed ... Not Found".
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
