@@ -233,6 +233,12 @@ button:disabled { opacity: 0.55; cursor: not-allowed; }
 .rodape p { margin: 0 0 8px; }
 .rodape a { color: var(--destaque-claro); }
 
+.credito {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--borda);
+}
+
 /* ── Telas estreitas ─────────────────────────────────────── */
 @media (max-width: 600px) {
   .topo { padding-top: 32px; }

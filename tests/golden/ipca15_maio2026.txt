@@ -21,6 +21,3 @@
 📈 O *IPCA-15 acumulado em 12 meses* até maio ficou em *4,64%*, acima dos 4,37% registrados nos 12 meses encerrados em abril.
 
 📊 O *índice de difusão*, que mede a disseminação das altas de preços entre os itens que compõem o IPCA-15, ficou em *65,1%*.
-
-_*Kleber Castro*_
-_Fonte: IBGE (SIDRA)_

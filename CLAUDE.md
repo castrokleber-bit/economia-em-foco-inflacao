@@ -10,8 +10,9 @@ via API (IBGE e Banco Central) e monta a nota de WhatsApp pronta para cópia.
 
 Projeto pessoal, de uso não institucional. **Não há vínculo com nenhuma
 entidade, e nenhuma marca, sigla ou assinatura institucional deve voltar ao
-código, aos documentos ou ao texto da nota.** A assinatura da nota é o nome
-configurado em `ConfigNota.assinatura` mais a linha de fonte dos dados.
+código, aos documentos ou ao texto da nota.** A nota **não tem assinatura**:
+termina no último bloco de conteúdo. O crédito do autor fica no rodapé da
+página, fora do texto que vai para o WhatsApp.
 
 O objetivo é velocidade: a nota é descritiva e padronizada. Não é um produto
 analítico.
@@ -118,8 +119,8 @@ revisão de série pelo BCB. Só no segundo caso se regenera o golden.
   metadados da fonte**, nunca chutar.
 - **Núcleo é opcional.** A nota tem de funcionar com e sem ele.
 - **Todo número exibido tem proveniência**, e a página mostra essa tabela.
-- A linha de fonte cita o Banco Central **apenas** quando algum número da nota
-  veio do SGS. No IPCA-15 não vem — citar seria proveniência falsa.
+- A proveniência dos números fica na tabela da interface, não no texto da
+  nota. A nota não carrega linha de fonte nem assinatura.
 
 ## 9. O que NÃO fazer
 
@@ -130,7 +131,7 @@ revisão de série pelo BCB. Só no segundo caso se regenera o golden.
 - ❌ Alterar dados numéricos sem fonte explícita da API.
 - ❌ Preencher dado ausente com valor aproximado (ver seção 3).
 - ❌ Mexer num montador sem mexer no par e rodar o gate (ver seção 5).
-- ❌ Reintroduzir marca, sigla ou assinatura institucional (ver seção 1).
+- ❌ Reintroduzir qualquer assinatura ou linha de fonte na nota (ver seção 1).
 
 ## 10. Identidade visual
 

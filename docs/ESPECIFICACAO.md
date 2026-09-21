@@ -47,7 +47,7 @@ A nota tem **blocos fixos**, nesta ordem. Tokens entre `{ }` vêm dos dados.
 4. ACUMULADO 12M
 5. NÚCLEO            (apenas IPCA, apenas se disponível)
 6. DIFUSÃO
-7. ASSINATURA
+7. (sem assinatura — a nota termina no conteúdo)
 8. LINK DA NOTÍCIA
 ```
 
@@ -80,8 +80,6 @@ voláteis, ficou em *{NUCLEO}%* no acumulado em 12 meses até {mês},
 itens que compõem o IPCA, ficou em *{DIF}%*, {abaixo|acima} do registrado em
 {mês_anterior} ({DIF_ANT}%).
 
-_*{ASSINATURA}*_
-_Fonte: IBGE (SIDRA) e Banco Central (SGS)_
 
 Notícia: {URL_IBGE}
 ```
@@ -107,9 +105,9 @@ As duas notas-fonte usam emojis ligeiramente diferentes. **Padronizar** num
 | Difusão | 📊 |
 
 > Decisão pendente do Kleber: a nota-fonte do IPCA usa 🟥 nas explicações e
-> A assinatura e a linha de fonte são fixadas em `ConfigNota.assinatura` e em
-> `_fontes_usadas()`. A linha de fonte cita o Banco Central apenas quando algum
-> número da nota veio do SGS — no IPCA-15 não vem, então cita só o IBGE.
+> A nota não leva assinatura nem linha de fonte: termina no último bloco de
+> conteúdo. A proveniência de cada número aparece na tabela da interface, e o
+> crédito do autor no rodapé da página.
 
 ### 5.4 Regras de redação determinística
 

@@ -22,7 +22,6 @@ export const CONFIG_PADRAO = {
   threshold_grupos: 0.05, // p.p. mínimo para citar um grupo (alta)
   top_n_queda: 1,
   threshold_queda: 0.05, // p.p. mínimo para citar deflação
-  assinatura: "Kleber Castro", // nome exibido no rodapé da nota
   emoji_titulo: "\u{1f6a8}", // 🚨
   emoji_resultado: "\u{1f6a9}", // 🚩
   emoji_explicacao: "\u{1f534}", // 🔴
@@ -502,24 +501,6 @@ export function blocoDifusao(r, cfg) {
   );
 }
 
-/**
- * Cita apenas as fontes que de fato alimentaram esta nota.
- *
- * Difusão e núcleo do IPCA vêm do SGS/BCB. Na nota do IPCA-15 a difusão é
- * calculada a partir dos subitens do IBGE e não há núcleo publicado — citar
- * o Banco Central ali seria proveniência falsa.
- */
-function fontesUsadas(r) {
-  const usaBcb =
-    r.indicador === "IPCA" && (r.difusao !== null || r.nucleo_12m !== null);
-  if (usaBcb) return "IBGE (SIDRA) e Banco Central (SGS)";
-  return "IBGE (SIDRA)";
-}
-
-export function blocoAssinatura(r, cfg) {
-  return `_*${cfg.assinatura}*_\n_Fonte: ${fontesUsadas(r)}_`;
-}
-
 export function blocoLink(r) {
   if (!r.url_ibge) return null;
   return `Notícia: ${r.url_ibge}`;
@@ -543,7 +524,6 @@ export function comporNota(r, cfg = null) {
     blocoAcumulado(r, c),
     blocoNucleo(r, c),
     blocoDifusao(r, c),
-    blocoAssinatura(r, c),
     blocoLink(r),
   ];
 

@@ -11,6 +11,3 @@
 📉 *A média dos núcleos de inflação*, que suavizam os efeitos de itens mais voláteis, ficou em *4,38%* no acumulado em 12 meses até abril.
 
 📊 O *índice de difusão*, que mede a disseminação das altas de preços entre os itens que compõem o IPCA, ficou em *65,3%*.
-
-_*Kleber Castro*_
-_Fonte: IBGE (SIDRA) e Banco Central (SGS)_

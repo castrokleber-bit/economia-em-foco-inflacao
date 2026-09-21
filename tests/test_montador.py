@@ -12,7 +12,7 @@ from pathlib import Path
 import pytest
 
 from fontes.modelo import ItemInflacao, ResultadoInflacao
-from nucleo.montador import compor_nota, ConfigNota
+from nucleo.montador import compor_nota
 
 GOLDEN_DIR = Path(__file__).parent / "golden"
 
@@ -185,34 +185,8 @@ def test_projecao_omitida_sem_dados():
     assert "Focus" not in nota
 
 
-def test_assinatura_usa_nome_configurado():
-    r = _resultado_simples()
-    cfg = ConfigNota(assinatura="Fulano de Tal")
-    nota = compor_nota(r, cfg)
-    assert nota.endswith("_*Fulano de Tal*_\n_Fonte: IBGE (SIDRA) e Banco Central (SGS)_")
 
 
-def test_fonte_cita_bcb_quando_ipca_usa_sgs():
-    """IPCA com difusao/nucleo do SGS: a fonte tem de citar o Banco Central."""
-    nota = compor_nota(_resultado_simples(indicador="IPCA"))
-    assert "_Fonte: IBGE (SIDRA) e Banco Central (SGS)_" in nota
-
-
-def test_fonte_omite_bcb_no_ipca15():
-    """IPCA-15 nao usa serie do BCB — citar o Banco Central seria falso."""
-    r = _resultado_simples(indicador="IPCA-15", nucleo_12m=None, difusao_anterior=None)
-    nota = compor_nota(r)
-    assert "_Fonte: IBGE (SIDRA)_" in nota
-    assert "Banco Central" not in nota
-
-
-def test_fonte_omite_bcb_no_ipca_sem_dado_do_sgs():
-    """Se difusao e nucleo falharem, nenhum numero veio do BCB — nao citar."""
-    r = _resultado_simples(difusao=None, difusao_anterior=None,
-                          nucleo_12m=None, nucleo_ant=None)
-    nota = compor_nota(r)
-    assert "_Fonte: IBGE (SIDRA)_" in nota
-    assert "Banco Central" not in nota
 
 
 def test_link_ibge_incluido():
@@ -377,3 +351,18 @@ def test_nucleo_com_mes_anterior_mantem_comparacao():
     r = _resultado_simples(nucleo_12m=4.38, nucleo_ant=4.39)
     nota = compor_nota(r)
     assert "ligeiramente abaixo dos 4,39% no acumulado até março." in nota
+
+
+def test_nota_nao_tem_assinatura():
+    """
+    Regressao: a nota termina no conteudo, sem bloco de assinatura nem linha
+    de fonte. A proveniencia dos numeros fica na tabela da interface, nao no
+    texto que vai para o WhatsApp.
+    """
+    nota = compor_nota(_resultado_simples())
+    ultimo_bloco = nota.split("\n\n")[-1]
+    assert "_*" not in ultimo_bloco
+    assert "Fonte:" not in nota
+    assert "Kleber" not in nota
+    # O ultimo bloco passa a ser o de difusao
+    assert ultimo_bloco.startswith("\U0001f4ca")

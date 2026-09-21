@@ -23,7 +23,6 @@ class ConfigNota:
     threshold_grupos: float = 0.05   # p.p. mínimo para citar um grupo (alta)
     top_n_queda: int = 1
     threshold_queda: float = 0.05    # p.p. mínimo para citar deflação
-    assinatura: str = "Kleber Castro"  # nome exibido no rodape da nota
     emoji_titulo: str = "\U0001f6a8"      # 🚨
     emoji_resultado: str = "\U0001f6a9"   # 🚩
     emoji_explicacao: str = "\U0001f534"  # 🔴
@@ -505,29 +504,6 @@ def bloco_difusao(r: ResultadoInflacao, cfg: ConfigNota) -> Optional[str]:
     )
 
 
-def _fontes_usadas(r: ResultadoInflacao) -> str:
-    """
-    Cita apenas as fontes que de fato alimentaram esta nota.
-
-    Difusão e núcleo do IPCA vêm do SGS/BCB. Na nota do IPCA-15 a difusão é
-    calculada a partir dos subitens do IBGE e não há núcleo publicado — citar
-    o Banco Central ali seria proveniência falsa.
-    """
-    usa_bcb = r.indicador == "IPCA" and (
-        r.difusao is not None or r.nucleo_12m is not None
-    )
-    if usa_bcb:
-        return "IBGE (SIDRA) e Banco Central (SGS)"
-    return "IBGE (SIDRA)"
-
-
-def bloco_assinatura(r: ResultadoInflacao, cfg: ConfigNota) -> str:
-    return (
-        f"_*{cfg.assinatura}*_\n"
-        f"_Fonte: {_fontes_usadas(r)}_"
-    )
-
-
 def bloco_link(r: ResultadoInflacao) -> Optional[str]:
     if not r.url_ibge:
         return None
@@ -557,7 +533,6 @@ def compor_nota(
         bloco_acumulado(r, cfg),
         bloco_nucleo(r, cfg),
         bloco_difusao(r, cfg),
-        bloco_assinatura(r, cfg),
         bloco_link(r),
     ]
 

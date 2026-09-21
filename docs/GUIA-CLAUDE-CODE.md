@@ -75,7 +75,7 @@ Gate: difusão lê 65,3% (abr/2026); média dos núcleos reproduz 4,38%.
 
 > "Crie `tests/golden/` com as duas notas-padrão (vou colar o texto). Implemente
 > `nucleo/montador.py` com **uma função por bloco** (título, resultado,
-> explicação, acumulado, núcleo, difusão, assinatura, link) e uma função que
+> explicação, acumulado, núcleo, difusão, link) e uma função que
 > compõe tudo. Sem biblioteca de template; f-strings. Trate concordância de
 > direção (alta/queda, acima/abaixo) e o plural de p.p. Escreva
 > `tests/test_montador.py` comparando a saída com os golden, caractere a
