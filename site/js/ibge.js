@@ -77,7 +77,18 @@ async function fetchAgregado(tabela, periodo, variaveis, cats) {
     `${BASE}/${tabela}/periodos/${periodo}/variaveis/${varsStr}` +
     `?localidades=N1[all]&classificacao=315[${catsStr}]`;
 
-  const resp = await fetch(url);
+  // Timeout obrigatório (o httpx.get do Python usa timeout=60). Sem ele, uma
+  // requisição pendurada deixa a interface em "Gerando…" para sempre, sem erro
+  // e sem como sair.
+  let resp;
+  try {
+    resp = await fetch(url, { signal: AbortSignal.timeout(60000) });
+  } catch (e) {
+    if (e.name === "TimeoutError" || e.name === "AbortError") {
+      throw new Error(`IBGE nao respondeu em 60s (${tabela}/${periodo})`);
+    }
+    throw e;
+  }
   if (!resp.ok) {
     throw new Error(`IBGE respondeu ${resp.status} para ${tabela}/${periodo}`);
   }

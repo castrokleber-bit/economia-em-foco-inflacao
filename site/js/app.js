@@ -150,14 +150,20 @@ async function gerarNota() {
     return;
   }
 
-  // enriquecer() não lança: difusão e núcleo indisponíveis viram null e os
-  // blocos correspondentes simplesmente não entram na nota.
-  await enriquecer(r);
+  // Tudo daqui para baixo também precisa estar protegido: qualquer excecao
+  // solta deixaria a interface presa em "Gerando…", sem erro e sem saida.
+  try {
+    // enriquecer() não lança: difusão e núcleo indisponíveis viram null e os
+    // blocos correspondentes simplesmente não entram na nota.
+    await enriquecer(r);
 
-  notaAtual = comporNota(r);
-  notaTexto.textContent = notaAtual;
-  renderProveniencia(montarProveniencia(r));
-  setEstado("ok");
+    notaAtual = comporNota(r);
+    notaTexto.textContent = notaAtual;
+    renderProveniencia(montarProveniencia(r));
+    setEstado("ok");
+  } catch (e) {
+    mostrarErro(`Falha ao montar a nota: ${e.message}`);
+  }
 }
 
 form.addEventListener("submit", (e) => {

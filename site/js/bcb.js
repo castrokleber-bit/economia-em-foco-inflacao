@@ -53,7 +53,10 @@ async function sgsFetch(codigo, ini, fim) {
     `?formato=json&dataInicial=${encodeURIComponent(ini)}` +
     `&dataFinal=${encodeURIComponent(fim)}`;
   try {
-    const resp = await fetch(url);
+    // Timeout espelha o httpx.get(timeout=30) do Python. Sem ele, uma serie
+    // pendurada travaria a nota inteira; com ele, a falha vira [] e o bloco
+    // correspondente some da nota — que e a politica do projeto.
+    const resp = await fetch(url, { signal: AbortSignal.timeout(30000) });
     if (!resp.ok) return [];
     return (await resp.json()) ?? [];
   } catch {
@@ -108,6 +111,10 @@ async function acum12mSgs(codigo, mesRef) {
  * é seguro, publicá-lo errado não é.
  */
 export async function mediaNucleos12m(mesRef) {
+  // NÃO paralelizar com Promise.all. Já foi tentado: disparar as 5 séries de
+  // uma vez (12 requisições simultâneas somando os dois meses) faz o SGS
+  // derrubar parte delas, e a nota sai sem a comparação com o mês anterior.
+  // O ganho seria ~1s; o custo é perder um número. Mantém-se em série.
   const vals = [];
   for (const nome of CONJUNTO_MEDIA) {
     const v = await acum12mSgs(NUCLEOS[nome], mesRef);
@@ -133,6 +140,8 @@ export async function mediaNucleos12m(mesRef) {
  */
 export async function enriquecer(resultado) {
   if (resultado.indicador === "IPCA") {
+    // Em série, pelo mesmo motivo descrito em mediaNucleos12m: o SGS não
+    // tolera a rajada e passa a devolver menos dados do que existe.
     resultado.difusao = await buscarValorMes(SGS_DIFUSAO_IPCA, resultado.mes_ref);
     resultado.difusao_anterior = await buscarValorMes(
       SGS_DIFUSAO_IPCA,
