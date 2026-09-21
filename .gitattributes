@@ -1,0 +1,13 @@
+* text=auto
+
+# Scripts do Windows precisam de CRLF, senao o cmd.exe engole o primeiro
+# caractere de cada linha e o iniciar.bat falha.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Notas golden e fixtures do gate sao comparadas byte a byte pelo Node, que
+# nao traduz fim de linha. Fixar LF mantem o working tree do Windows igual ao
+# checkout Linux do CI — sem isso o mesmo commit passa aqui e falha la.
+tests/golden/*.txt text eol=lf
+tests/equivalencia/fixtures/** text eol=lf

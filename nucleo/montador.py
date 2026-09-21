@@ -23,7 +23,7 @@ class ConfigNota:
     threshold_grupos: float = 0.05   # p.p. mínimo para citar um grupo (alta)
     top_n_queda: int = 1
     threshold_queda: float = 0.05    # p.p. mínimo para citar deflação
-    assinatura: str = "SIECON"        # "ECON" ou "SIECON"
+    assinatura: str = "Kleber Castro"  # nome exibido no rodape da nota
     emoji_titulo: str = "\U0001f6a8"      # 🚨
     emoji_resultado: str = "\U0001f6a9"   # 🚩
     emoji_explicacao: str = "\U0001f534"  # 🔴
@@ -284,13 +284,11 @@ def bloco_resultado(r: ResultadoInflacao, cfg: ConfigNota) -> str:
         f"{comparacoes}"
     )
 
-    if r.projecao_cni is not None and r.projecao_focus is not None:
-        rel_cni = _em_linha_ou_relativo(r.variacao_mensal, r.projecao_cni)
-        rel_foc = _acima_abaixo(r.variacao_mensal, r.projecao_focus)
+    if r.projecao_focus is not None:
+        rel_foc = _em_linha_ou_relativo(r.variacao_mensal, r.projecao_focus)
         texto += (
-            f" O resultado ficou {rel_cni} a projeção da CNI "
-            f"({_fmt(r.projecao_cni)}%) e {rel_foc} da projeção "
-            f"da Pesquisa Focus do Banco Central ({_fmt(r.projecao_focus)}%)."
+            f" O resultado ficou {rel_foc} a projeção da Pesquisa Focus "
+            f"do Banco Central ({_fmt(r.projecao_focus)}%)."
         )
 
     return texto
@@ -464,14 +462,26 @@ def bloco_nucleo(r: ResultadoInflacao, cfg: ConfigNota) -> Optional[str]:
     """Apenas para IPCA e quando nucleo_12m nao e None."""
     if r.indicador != "IPCA" or r.nucleo_12m is None:
         return None
-    ant = r.nucleo_12m_anterior if r.nucleo_12m_anterior is not None else r.nucleo_12m
-    rel = _acima_abaixo(r.nucleo_12m, ant)
-    return (
+
+    base = (
         f"{cfg.emoji_nucleo} *A média dos núcleos de inflação*, "
         f"que suavizam os efeitos de itens mais voláteis, "
         f"ficou em *{_fmt(r.nucleo_12m)}%* no acumulado em 12 meses "
-        f"até {_mes(r.mes_ref)}, ligeiramente {rel} dos "
-        f"{_fmt(ant)}% no acumulado até {_mes(r.mes_ant)}."
+        f"até {_mes(r.mes_ref)}"
+    )
+
+    # Sem o mês anterior não há comparação a fazer. O fallback antigo usava o
+    # próprio nucleo_12m no lugar do ausente, o que publicava a frase
+    # "ficou em X%, ligeiramente abaixo dos X%" — um número inventado para o
+    # mês anterior, afirmado como fato. Mesma política do bloco de difusão:
+    # havendo só um dado, informa-se só ele.
+    if r.nucleo_12m_anterior is None:
+        return base + "."
+
+    rel = _acima_abaixo(r.nucleo_12m, r.nucleo_12m_anterior)
+    return (
+        f"{base}, ligeiramente {rel} dos "
+        f"{_fmt(r.nucleo_12m_anterior)}% no acumulado até {_mes(r.mes_ant)}."
     )
 
 
@@ -495,15 +505,26 @@ def bloco_difusao(r: ResultadoInflacao, cfg: ConfigNota) -> Optional[str]:
     )
 
 
-def bloco_assinatura(cfg: ConfigNota) -> str:
-    if cfg.assinatura == "SIECON":
-        sup = "Superintendência de Inteligência Econômica (SIECON)"
-    else:
-        sup = "Superintendência de Economia (ECON)"
+def _fontes_usadas(r: ResultadoInflacao) -> str:
+    """
+    Cita apenas as fontes que de fato alimentaram esta nota.
+
+    Difusão e núcleo do IPCA vêm do SGS/BCB. Na nota do IPCA-15 a difusão é
+    calculada a partir dos subitens do IBGE e não há núcleo publicado — citar
+    o Banco Central ali seria proveniência falsa.
+    """
+    usa_bcb = r.indicador == "IPCA" and (
+        r.difusao is not None or r.nucleo_12m is not None
+    )
+    if usa_bcb:
+        return "IBGE (SIDRA) e Banco Central (SGS)"
+    return "IBGE (SIDRA)"
+
+
+def bloco_assinatura(r: ResultadoInflacao, cfg: ConfigNota) -> str:
     return (
-        f"_*{sup}*_\n"
-        "_*Diretoria de Desenvolvimento Industrial (DDI)*_\n"
-        "_*Confederação Nacional da Indústria (CNI)*_"
+        f"_*{cfg.assinatura}*_\n"
+        f"_Fonte: {_fontes_usadas(r)}_"
     )
 
 
@@ -536,7 +557,7 @@ def compor_nota(
         bloco_acumulado(r, cfg),
         bloco_nucleo(r, cfg),
         bloco_difusao(r, cfg),
-        bloco_assinatura(cfg),
+        bloco_assinatura(r, cfg),
         bloco_link(r),
     ]
 

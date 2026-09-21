@@ -168,37 +168,51 @@ def test_tres_grupos_usa_plural():
     assert "destacam-se os grupos" in nota
 
 
-def test_projecoes_aparecem_quando_presentes():
-    """Linha de projecoes e incluida quando ambas projecao_cni e focus sao informadas."""
+def test_projecao_focus_aparece_quando_presente():
+    """Linha de projecao e incluida quando projecao_focus e informada."""
     r = _resultado_simples()
-    r.projecao_cni = 0.65
     r.projecao_focus = 0.70
     nota = compor_nota(r)
-    assert "projeção da CNI" in nota
-    assert "Focus" in nota
+    assert "Pesquisa Focus" in nota
+    assert "0,70%" in nota
 
 
-def test_projecoes_omitidas_sem_dados():
-    """Linha de projecoes e omitida quando projecao_cni/focus sao None."""
+def test_projecao_omitida_sem_dados():
+    """Linha de projecao e omitida quando projecao_focus e None."""
     r = _resultado_simples()
-    r.projecao_cni = None
     r.projecao_focus = None
     nota = compor_nota(r)
-    assert "projeção da CNI" not in nota
+    assert "Focus" not in nota
 
 
-def test_assinatura_econ():
+def test_assinatura_usa_nome_configurado():
     r = _resultado_simples()
-    cfg = ConfigNota(assinatura="ECON")
+    cfg = ConfigNota(assinatura="Fulano de Tal")
     nota = compor_nota(r, cfg)
-    assert "Superintendência de Economia (ECON)" in nota
+    assert nota.endswith("_*Fulano de Tal*_\n_Fonte: IBGE (SIDRA) e Banco Central (SGS)_")
 
 
-def test_assinatura_siecon():
-    r = _resultado_simples()
-    cfg = ConfigNota(assinatura="SIECON")
-    nota = compor_nota(r, cfg)
-    assert "Superintendência de Inteligência Econômica (SIECON)" in nota
+def test_fonte_cita_bcb_quando_ipca_usa_sgs():
+    """IPCA com difusao/nucleo do SGS: a fonte tem de citar o Banco Central."""
+    nota = compor_nota(_resultado_simples(indicador="IPCA"))
+    assert "_Fonte: IBGE (SIDRA) e Banco Central (SGS)_" in nota
+
+
+def test_fonte_omite_bcb_no_ipca15():
+    """IPCA-15 nao usa serie do BCB — citar o Banco Central seria falso."""
+    r = _resultado_simples(indicador="IPCA-15", nucleo_12m=None, difusao_anterior=None)
+    nota = compor_nota(r)
+    assert "_Fonte: IBGE (SIDRA)_" in nota
+    assert "Banco Central" not in nota
+
+
+def test_fonte_omite_bcb_no_ipca_sem_dado_do_sgs():
+    """Se difusao e nucleo falharem, nenhum numero veio do BCB — nao citar."""
+    r = _resultado_simples(difusao=None, difusao_anterior=None,
+                          nucleo_12m=None, nucleo_ant=None)
+    nota = compor_nota(r)
+    assert "_Fonte: IBGE (SIDRA)_" in nota
+    assert "Banco Central" not in nota
 
 
 def test_link_ibge_incluido():
@@ -343,3 +357,23 @@ def test_ordem_inflacao_antes_deflacao():
     pos_alta = nota.index("subitem de maior impacto")
     pos_queda = nota.index("subitem de maior deflação")
     assert pos_alta < pos_queda
+
+
+def test_nucleo_sem_mes_anterior_nao_inventa_comparacao():
+    """
+    Regressao: com nucleo_12m_anterior=None a nota nao pode comparar o valor
+    com ele mesmo. O fallback antigo produzia "ficou em X%, ligeiramente
+    abaixo dos X%" — um numero fabricado para o mes anterior.
+    """
+    r = _resultado_simples(nucleo_12m=4.38, nucleo_ant=None)
+    nota = compor_nota(r)
+    assert "no acumulado em 12 meses até abril." in nota
+    assert "ligeiramente" not in nota
+    assert "no acumulado até março" not in nota
+
+
+def test_nucleo_com_mes_anterior_mantem_comparacao():
+    """Havendo os dois valores, a frase comparativa continua igual."""
+    r = _resultado_simples(nucleo_12m=4.38, nucleo_ant=4.39)
+    nota = compor_nota(r)
+    assert "ligeiramente abaixo dos 4,39% no acumulado até março." in nota

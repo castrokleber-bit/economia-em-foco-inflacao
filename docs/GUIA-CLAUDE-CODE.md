@@ -8,7 +8,7 @@ nunca avançar de etapa sem que a anterior passe no seu gate.
 - Python 3.11+ e `pip`
 - Claude Code instalado e autenticado
 - (Para a leitura por IA) chave da API Anthropic
-- Logomarca CNI (SVG) e, idealmente, a fonte Neo Sans Pro licenciada
+- Nenhum ativo de marca: a interface usa fontes do sistema
 
 ## 1. Montar a pasta e ancorar a documentação
 
@@ -40,8 +40,8 @@ qualquer linha de código. Isso evita 80% do retrabalho.
 
 ## 3. Ambiente e dependências
 
-> "Crie `requirements.txt` (httpx, fastapi, uvicorn, pytest, e o SDK Anthropic),
-> `.env.example`, e o esqueleto de pastas do CLAUDE.md com arquivos vazios.
+> "Crie `requirements.txt` (httpx e pytest — a implementacao de referencia
+> em Python) e o esqueleto de pastas do CLAUDE.md com arquivos vazios.
 > Crie e ative um venv e instale as dependências."
 
 Gate: `pip install -r requirements.txt` roda sem erro.
@@ -84,15 +84,16 @@ Gate: difusão lê 65,3% (abr/2026); média dos núcleos reproduz 4,38%.
 Gate: `pytest` passa — saída idêntica às duas notas. Inclua um teste de IPCA
 **sem** núcleo (núcleo = None) que não quebra e omite o bloco.
 
-## 6. Interface (FastAPI + estático, com identidade CNI)
+## 6. Interface (página estática)
 
-> "Implemente `app/main.py` com endpoint `/gerar?indicador=&mes=` que retorna a
-> nota montada + a proveniência dos números. Crie `app/static/` (index.html,
-> style.css, app.js) seguindo docs/IDENTIDADE-VISUAL.md: faixa #164194, realces
-> #008BD2, fonte Neo Sans Pro com fallback Manrope, logo em static/img,
+> "Implemente `site/js/app.js`, que busca os dados, monta a nota e exibe a
+> proveniência dos números. Crie `site/` (index.html,
+> style.css, app.js) seguindo docs/IDENTIDADE-VISUAL.md: paleta neutra escura
+> definida em variáveis CSS, fontes do sistema, sem logo,
 > minimalista. Botão copiar. A nota e o rascunho de leitura em cards separados."
 
-Gate: `uvicorn app.main:app --reload`, gerar IPCA abr/2026 reproduz a nota na tela.
+Gate: `python -m http.server 8777 --directory site`, gerar IPCA abr/2026
+reproduz a nota na tela.
 
 ## 7. Leitura por IA (último, isolado)
 

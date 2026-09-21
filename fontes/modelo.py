@@ -35,7 +35,6 @@ class ResultadoInflacao:
     difusao_anterior: Optional[float] = None
     nucleo_12m: Optional[float] = None
     nucleo_12m_anterior: Optional[float] = None
-    projecao_cni: Optional[float] = None
     projecao_focus: Optional[float] = None
     url_ibge: Optional[str] = None
 

@@ -1,122 +1,138 @@
-# CLAUDE.md — Economia em Foco | Inflação (IPCA / IPCA-15)
+# CLAUDE.md — Nota de Inflação (IPCA / IPCA-15)
 
 > Este arquivo é lido automaticamente pelo Claude Code. Ele define o que o
 > projeto é, como construí-lo e — sobretudo — o que **não** fazer.
 
 ## 1. O que este projeto é
 
-Aplicativo que, quando da divulgação do IPCA ou do IPCA-15, busca os
-resultados automaticamente via API (IBGE e Banco Central) e **monta a nota de
-WhatsApp do produto "Economia em Foco"** seguindo o padrão fixo da GPE/ECON.
+Página estática que, na divulgação do IPCA ou do IPCA-15, busca os resultados
+via API (IBGE e Banco Central) e monta a nota de WhatsApp pronta para cópia.
 
-O objetivo é velocidade: a nota é descritiva, padronizada e pronta para envio
-até as **09h15** (regra de canal do WhatsApp). Não é um produto analítico.
+Projeto pessoal, de uso não institucional. **Não há vínculo com nenhuma
+entidade, e nenhuma marca, sigla ou assinatura institucional deve voltar ao
+código, aos documentos ou ao texto da nota.** A assinatura da nota é o nome
+configurado em `ConfigNota.assinatura` mais a linha de fonte dos dados.
+
+O objetivo é velocidade: a nota é descritiva e padronizada. Não é um produto
+analítico.
 
 ## 2. Princípio de arquitetura inegociável: a fronteira determinística
 
-A mesma regra da ferramenta do Copom se aplica aqui:
+- **A NOTA é determinística.** É montada por funções puras a partir dos dados
+  estruturados das APIs. **Nenhuma parte do texto da nota é gerada por IA.**
+  Cada número no texto rastreia diretamente a um campo devolvido pela API.
+- **Se uma IA for acrescentada**, será só depois e fora da nota, para redigir
+  um rascunho de leitura analítica — claramente rotulado como sugestão, nunca
+  enviado automaticamente. (Hoje não existe: a página é 100% estática e uma
+  chave de API não pode viver nela.)
 
-- **A NOTA é determinística.** É montada por funções Python puras a partir dos
-  dados estruturados das APIs. **Nenhuma parte do texto da nota é gerada por
-  IA.** Cada número no texto rastreia diretamente a um campo retornado pela API.
-- **A IA entra apenas depois, e fora da nota**, para redigir um rascunho de
-  *Leitura para a Indústria* — claramente rotulado como sugestão para avaliação
-  do especialista, nunca enviado automaticamente.
+Por quê: a nota carrega números oficiais. Alucinação aqui publica um número
+falso como fato.
 
-Por quê: a nota carrega números oficiais sob a marca da CNI. Alucinação aqui é
-risco institucional. Determinismo torna a saída auditável e reproduzível.
+## 3. A regra que decorre disso: dado ausente some, não vira aproximação
 
-## 3. Stack
+Quando uma fonte não responde, o bloco correspondente **sai da nota**. Nunca
+se substitui um valor ausente por outro parecido. Dois bugs reais já nasceram
+de violar isso, e ambos publicavam número errado sem qualquer sinal de erro:
 
-- Python 3.11+
-- `httpx` (requisições às APIs; suporta async)
-- `fastapi` + `uvicorn` (backend que serve a interface e expõe `/gerar`)
-- Frontend estático (HTML/CSS/JS puro) — controle total sobre a identidade CNI
-- `pytest` (testes, incl. o gate de validação)
-- IA (opcional, só leitura): SDK Anthropic via variável de ambiente
+- `media_nucleos_12m` calculava a média com as séries que respondessem. Com 4
+  de 5, o número deslocava até 0,09 p.p. Hoje é tudo-ou-nada.
+- `bloco_nucleo` caía para o valor do mês corrente quando faltava o anterior,
+  gerando "ficou em 4,38%, ligeiramente abaixo dos 4,38%". Hoje, sem o mês
+  anterior, a frase comparativa simplesmente não é escrita.
+
+Há teste de regressão para os dois. Ao mexer em qualquer campo opcional
+(`difusao`, `difusao_anterior`, `nucleo_12m`, `nucleo_12m_anterior`,
+`projecao_focus`, `variacao_mesmo_mes_ano_anterior`), o ramo "ausente" precisa
+omitir, nunca preencher.
+
+## 4. Stack
+
+- **Publicado:** HTML/CSS/JavaScript puro (`site/`), sem build, sem
+  dependência, sem framework. ES modules nativos.
+- **Referência:** Python 3.11+ com `httpx` (`fontes/`, `nucleo/`) — não vai
+  para o site; existe para gerar as fixtures e validar o JavaScript.
+- **Testes:** `pytest` (Python) e Node (gate de equivalência).
 
 Manter dependências mínimas. Sem framework de template no montador de texto —
-usar f-strings/funções explícitas, para que cada bloco seja auditável.
+usar template literals/funções explícitas, para que cada bloco seja auditável.
 
-## 4. Estrutura de pastas
+## 5. Duas implementações, uma nota
 
-```
-economia-em-foco-inflacao/
-├── CLAUDE.md                  # este arquivo
-├── README.md
-├── .env.example               # variáveis de ambiente (copiar p/ .env)
-├── requirements.txt
-├── docs/
-│   ├── ESPECIFICACAO.md       # PRD + modelo de texto + regras de negócio
-│   ├── FONTES-DE-DADOS.md     # APIs, códigos verificados, gates de validação
-│   ├── IDENTIDADE-VISUAL.md   # cores, fonte, logo, layout
-│   └── GUIA-CLAUDE-CODE.md    # passo a passo de construção
-├── fontes/                    # camada de dados (1 módulo por fonte)
-│   ├── ibge.py                # SIDRA tabela 7060 (IPCA) / 7062 (IPCA-15)
-│   ├── bcb.py                 # SGS: núcleos, difusão; Olinda: Focus
-│   └── modelo.py              # dataclass ResultadoInflacao
-├── nucleo/                    # lógica de domínio (determinística)
-│   ├── impacto.py             # cálculo do impacto em p.p.
-│   ├── montador.py            # monta o texto da nota (1 função por bloco)
-│   └── leitura.py             # rascunho de leitura p/ indústria (ÚNICO ponto de IA)
-├── app/
-│   ├── main.py                # FastAPI
-│   └── static/                # index.html, style.css, app.js, logo, fonte
-└── tests/
-    ├── test_montador.py       # compara saída com as notas-padrão (golden)
-    ├── test_impacto.py        # valida impacto vs. divulgação conhecida
-    └── golden/                # notas de referência abril/2026 e maio/2026
-```
+`nucleo/montador.py` e `site/js/montador.js` são pares e **precisam produzir
+saída idêntica byte a byte**. O mesmo vale para os pares
+`impacto.py`/`impacto.js`, `ibge.py`/`ibge.js`, `bcb.py`/`bcb.js`,
+`modelo.py`/`modelo.js`.
 
-## 5. Comandos
+**Alterou um, altere o outro na mesma mudança e rode o gate.** Não existe
+"depois eu sincronizo": o gate é o que impede o site de publicar uma nota
+diferente da validada.
+
+Armadilhas de port já resolvidas — não reintroduzir:
+
+- `split(".", 1)` em Python é `maxsplit`; em JS é limite de resultados.
+- `round()` do Python vs `toFixed()` do JS: equivalentes aqui porque empate
+  exato não existe entre doubles nessas casas (ver comentário em `numeros.js`).
+- `_fmt` carrega um erro de ponto flutuante de propósito (0,105 → 0,10). É
+  porte literal; **não "consertar"** de um lado só.
+- Ordem de iteração: `ibge.js` usa `Map`, não objeto — chave numérica em
+  objeto JS é reordenada e muda o desempate de impacto.
+- Fim de linha: fixtures e goldens são LF (ver `.gitattributes`). O Node lê
+  bytes crus e o CI roda em Linux.
+
+## 6. Comandos
 
 ```bash
-# setup
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+# gate de equivalencia (offline) — a barreira central
+node tests/equivalencia/gate.mjs
 
-# rodar a aplicação (interface local)
-uvicorn app.main:app --reload   # abre em http://127.0.0.1:8000
+# testes da referencia Python (offline)
+python -m pytest -q -m "not integration"
 
-# testes (inclui o gate de validação)
-pytest -q
+# gates que dependem de rede
+node tests/equivalencia/e2e.mjs
+python -m pytest -q -m integration
+
+# rodar a pagina localmente
+python -m http.server 8777 --directory site
 ```
 
-## 6. Regra de ouro de qualidade: validação contra divulgação conhecida
+## 7. Regra de ouro: validação contra divulgação conhecida
 
-Antes de considerar qualquer módulo pronto, ele tem de **reproduzir as duas
-notas-padrão** que estão em `tests/golden/`:
+Antes de considerar qualquer módulo pronto, ele tem de reproduzir as duas
+notas de referência em `tests/golden/`:
 
-- **IPCA abril/2026** (variação 0,67%; acum. 12m 4,39%; núcleo médio 4,38%;
-  difusão 65,3%; impactos por grupo conhecidos)
-- **IPCA-15 maio/2026** (variação 0,62%; acum. 12m 4,64%; difusão 65,1%)
+- **IPCA abril/2026** (0,67%; acum. 12m 4,39%; núcleo 4,38%; difusão 65,3%)
+- **IPCA-15 maio/2026** (0,62%; acum. 12m 4,64%; difusão 65,1%)
 
-Se o `montador` + os `fetchers` + o cálculo de `impacto` não reconstroem esses
-números (dentro de tolerância de 0,01 p.p. para impactos arredondados), há erro.
-**Não avançar sem fechar o backtest.** Esta é a barreira central do projeto.
+mais os 16 casos sintéticos de `tests/equivalencia/casos_sinteticos.py`.
+**Não avançar sem fechar o gate.**
 
-## 7. Convenções (o que sempre fazer)
+Se um gate de rede falhar, distinga a causa antes de agir: código quebrado ou
+revisão de série pelo BCB. Só no segundo caso se regenera o golden.
 
-- **Não inventar códigos de API.** Todos os códigos (SIDRA, SGS, Olinda) estão
-  verificados em `docs/FONTES-DE-DADOS.md`. Usar de lá; se faltar, **buscar e
-  confirmar nos metadados da fonte**, nunca chutar.
-- **Núcleo é opcional.** O `montador` checa `if resultado.nucleo_12m is not
-  None`. Núcleo do Bacen às vezes sai com defasagem; a nota tem de funcionar com
-  e sem ele.
-- **Todo número exibido tem proveniência.** Guardar, no objeto de dados, a
-  fonte de cada campo (qual tabela/série/data).
-- **Saídas em `/output/`**; nunca sobrescrever golden ou docs.
+## 8. Convenções (o que sempre fazer)
 
-## 8. O que NÃO fazer
+- **Não inventar códigos de API.** Todos os códigos (SIDRA, SGS) estão
+  verificados em `docs/FONTES-DE-DADOS.md`. Se faltar, **confirmar nos
+  metadados da fonte**, nunca chutar.
+- **Núcleo é opcional.** A nota tem de funcionar com e sem ele.
+- **Todo número exibido tem proveniência**, e a página mostra essa tabela.
+- A linha de fonte cita o Banco Central **apenas** quando algum número da nota
+  veio do SGS. No IPCA-15 não vem — citar seria proveniência falsa.
+
+## 9. O que NÃO fazer
 
 - ❌ Gerar qualquer trecho da **nota** com IA.
-- ❌ Editorializar a nota (ela é descritiva; análise vai só na *leitura*, à parte).
-- ❌ Enviar/circular qualquer coisa automaticamente. A interface só **exibe** o
-  texto para cópia humana. Circulação externa é sempre decisão humana.
+- ❌ Editorializar a nota (ela é descritiva).
+- ❌ Enviar/circular qualquer coisa automaticamente. A página só **exibe** o
+  texto para cópia humana.
 - ❌ Alterar dados numéricos sem fonte explícita da API.
+- ❌ Preencher dado ausente com valor aproximado (ver seção 3).
+- ❌ Mexer num montador sem mexer no par e rodar o gate (ver seção 5).
+- ❌ Reintroduzir marca, sigla ou assinatura institucional (ver seção 1).
 
-## 9. Identidade visual
+## 10. Identidade visual
 
-Especificada em `docs/IDENTIDADE-VISUAL.md`. Resumo: minimalista, azul CNI
-`#164194` (escuro) e `#008BD2` (claro), fonte Neo Sans Pro, logomarca da CNI no
-cabeçalho. Atenção ao licenciamento da fonte (ver doc).
+Paleta neutra escura, especificada em `docs/IDENTIDADE-VISUAL.md` e definida
+como variáveis CSS no `:root` de `site/style.css`. Sem logo, sem webfont.

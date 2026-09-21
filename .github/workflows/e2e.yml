@@ -1,0 +1,22 @@
+name: Backtest contra as APIs reais
+
+# Roda separado do gate de publicação de propósito: este job depende do IBGE e
+# do BCB estarem no ar, e uma instabilidade deles não pode impedir o deploy.
+# Quando falhar, o motivo costuma ser um destes dois, e vale investigar:
+#   - o port quebrou de verdade; ou
+#   - o BCB revisou uma série de núcleo e a nota golden ficou desatualizada.
+on:
+  schedule:
+    - cron: "0 12 1 * *" # dia 1 de cada mês, 12h UTC
+  workflow_dispatch:
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Reproduzir as notas golden a partir das APIs
+        run: node tests/equivalencia/e2e.mjs

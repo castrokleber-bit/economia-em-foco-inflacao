@@ -2,3 +2,8 @@
 __pycache__/
 .env
 /output/
+.pytest_cache/
+node_modules/
+
+# Configuracao local do Claude Code: guarda caminhos absolutos da maquina.
+.claude/settings.local.json

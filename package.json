@@ -1,0 +1,14 @@
+{
+  "name": "nota-inflacao-ipca",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monta a nota de WhatsApp do IPCA e do IPCA-15 a partir das APIs do IBGE e do Banco Central.",
+  "type": "module",
+  "scripts": {
+    "gate": "node tests/equivalencia/gate.mjs",
+    "e2e": "node tests/equivalencia/e2e.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

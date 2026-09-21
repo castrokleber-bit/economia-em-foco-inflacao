@@ -123,7 +123,7 @@ maio/2026 traz difusão de 65,1%.
 
 ## 5. Projeções (opcional, só IPCA)
 
-- **Projeção CNI:** não vem de API. Ler de arquivo de configuração
+- **Projeção própria:** não vem de API. Ler de arquivo de configuração
   (`config/projecoes.json`) preenchido pela equipe, ou campo de input no app.
 - **Projeção Focus:** API Olinda de Expectativas de Mercado:
   `https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativaMercadoMensais?$format=json&$filter=Indicador eq 'IPCA'`

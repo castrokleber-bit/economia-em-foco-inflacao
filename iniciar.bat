@@ -1,60 +1,34 @@
 @echo off
-chcp 65001 >nul
-title Economia em Foco — Inflação
+setlocal
+title Nota de Inflacao - IPCA / IPCA-15
 
-cd /d "%~dp0"
+:: ---------------------------------------------------------------------------
+:: Uso local (opcional). O normal e usar a pagina publicada no GitHub Pages;
+:: este script existe so para rodar offline ou testar uma alteracao antes de
+:: publicar.
+::
+:: A pagina e 100% estatica e fala direto com as APIs do IBGE e do BCB, entao
+:: nao precisa de venv, de dependencia nenhuma e nem do FastAPI: basta um
+:: servidor de arquivos. Nao dá para abrir o index.html com duplo clique
+:: porque modulos ES sao bloqueados em file:// — por isso o servidor.
+:: ---------------------------------------------------------------------------
 
-:: Aviso: caminhos muito longos estouram o limite do Windows (260 caracteres)
-:: e quebram a instalacao das dependencias (ex: pacote anthropic).
-for /f %%L in ('powershell -NoProfile -Command "$PWD.Path.Length"') do set "PATHLEN=%%L"
-if %PATHLEN% GTR 130 (
+where python >nul 2>&1
+if errorlevel 1 (
     echo.
-    echo AVISO: o caminho desta pasta tem %PATHLEN% caracteres.
-    echo O Windows limita caminhos de arquivo a 260 caracteres, e a instalacao
-    echo das dependencias pode falhar ^(erro tipico: OSError / No such file or directory^).
+    echo ERRO: Python nao encontrado no PATH.
+    echo Instale em https://www.python.org/downloads/ marcando "Add to PATH".
     echo.
-    echo Se a instalacao falhar no proximo passo, mova esta pasta para um caminho
-    echo mais curto, por exemplo C:\Apps\economia-em-foco-inflacao, e rode de novo.
-    echo.
+    pause
+    exit /b 1
 )
 
-:: Primeira vez: criar venv e instalar dependências
-if not exist ".venv\Scripts\uvicorn.exe" (
-    echo.
-    echo [1/3] Criando ambiente Python...
-    python -m venv .venv
-    if errorlevel 1 (
-        echo.
-        echo ERRO: Python nao encontrado. Instale Python 3.11+ e tente novamente.
-        echo Download: https://www.python.org/downloads/
-        pause
-        exit /b 1
-    )
-
-    echo [2/3] Instalando dependencias ^(aguarde ~1 min na primeira vez^)...
-    .venv\Scripts\pip install -r requirements.txt --quiet
-    if errorlevel 1 (
-        echo.
-        echo ERRO: Falha ao instalar dependencias.
-        echo Isso pode ser falta de conexao com a internet OU caminho de pasta
-        echo muito longo ^(limite do Windows: 260 caracteres^). O caminho atual
-        echo desta pasta tem %PATHLEN% caracteres.
-        echo Se for isso, mova a pasta do projeto para um caminho mais curto
-        echo ^(ex: C:\Apps\economia-em-foco-inflacao^) e rode iniciar.bat novamente.
-        pause
-        exit /b 1
-    )
-
-    echo [3/3] Pronto!
-    echo.
-)
-
-:: Subir o servidor
-echo Iniciando servidor em http://127.0.0.1:8000 ...
-echo Para encerrar: feche esta janela.
+echo.
+echo  Servindo a pagina em http://127.0.0.1:8777
+echo  Feche esta janela para parar.
 echo.
 
-:: Abrir o browser apos 2 segundos
-start "" /b cmd /c "timeout /t 2 >nul && start http://127.0.0.1:8000"
+start "" http://127.0.0.1:8777
+python -m http.server 8777 --bind 127.0.0.1 --directory "%~dp0site"
 
-.venv\Scripts\uvicorn.exe app.main:app --host 127.0.0.1 --port 8000
+endlocal

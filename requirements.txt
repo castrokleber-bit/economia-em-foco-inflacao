@@ -1,10 +1,11 @@
-# Camada de dados e backend
+# Implementacao de referencia em Python.
+#
+# O site publicado NAO usa nada disto: a pagina e estatica e fala direto com
+# as APIs pelo navegador. Estas dependencias servem para rodar o Python que
+# gera as fixtures e os testes contra os quais o JavaScript e validado.
+
+# Camada de dados
 httpx>=0.27
-fastapi>=0.110
-uvicorn[standard]>=0.29
 
-# Leitura por IA (opcional — só o rascunho de leitura para a indústria)
-anthropic>=0.40
-
-# Testes / gates de validação
+# Testes e gates de validacao
 pytest>=8.0

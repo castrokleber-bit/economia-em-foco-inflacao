@@ -1,17 +1,17 @@
-# Especificação — Economia em Foco | Inflação
+# Especificação — Nota de Inflação (IPCA / IPCA-15)
 
 ## 1. Objetivo
 
 Reduzir a zero o trabalho manual de montagem da nota de WhatsApp de IPCA e
 IPCA-15. No dia da divulgação (D0), o app busca os dados, monta a nota no padrão
-GPE e a entrega pronta para cópia, em segundos — antes do prazo das 09h15.
+a apuração e a entrega pronta para cópia, em segundos.
 
 ## 2. Escopo
 
 **Dentro:** IPCA e IPCA-15. Nota de WhatsApp (texto). Rascunho opcional de
 "Leitura para a Indústria".
 
-**Fora (por ora):** versão completa do Economia em Foco (texto longo), outros
+**Fora (por ora):** versão longa da nota, outros
 indicadores, envio automático, publicação.
 
 ## 3. Requisitos funcionais
@@ -22,7 +22,7 @@ indicadores, envio automático, publicação.
 - **RF3.** Buscar o acumulado em 12 meses do mês de referência e do anterior.
 - **RF4.** (IPCA) Buscar a média dos núcleos (12m) atual e anterior, do Bacen.
 - **RF5.** Buscar o índice de difusão atual e anterior.
-- **RF6.** (Opcional) Buscar projeção Focus; ler projeção CNI de configuração.
+- **RF6.** (Opcional) Buscar projeção Focus do Banco Central.
 - **RF7.** Montar a nota no padrão fixo, **com** núcleo se disponível, **sem**
   núcleo caso contrário, sem erro nem campo vazio visível.
 - **RF8.** Exibir a nota em interface com botão "copiar".
@@ -58,7 +58,7 @@ A nota tem **blocos fixos**, nesta ordem. Tokens entre `{ }` vêm dos dados.
 
 🚩 O IPCA registrou *alta de {VAR}%* em {mês} de {ano}, após {avanço|recuo} de
 {VAR_ANT}% em {mês_anterior}. O resultado ficou {em linha com|acima de|abaixo de}
-a projeção da CNI ({PROJ_CNI}%) e {abaixo|acima} da projeção da Pesquisa Focus do
+{em linha com|acima de|abaixo de} a projeção da Pesquisa Focus do
 Banco Central ({PROJ_FOCUS}%).
 
 🟥 O resultado de {mês} *reflete a alta do grupo {GRUPO_1}*, com variação de
@@ -80,9 +80,8 @@ voláteis, ficou em *{NUCLEO}%* no acumulado em 12 meses até {mês},
 itens que compõem o IPCA, ficou em *{DIF}%*, {abaixo|acima} do registrado em
 {mês_anterior} ({DIF_ANT}%).
 
-_*Superintendência de Economia (ECON)*_
-_*Diretoria de Desenvolvimento Industrial (DDI)*_
-_*Confederação Nacional da Indústria (CNI)*_
+_*{ASSINATURA}*_
+_Fonte: IBGE (SIDRA) e Banco Central (SGS)_
 
 Notícia: {URL_IBGE}
 ```
@@ -108,9 +107,9 @@ As duas notas-fonte usam emojis ligeiramente diferentes. **Padronizar** num
 | Difusão | 📊 |
 
 > Decisão pendente do Kleber: a nota-fonte do IPCA usa 🟥 nas explicações e
-> assina "Superintendência de Economia (ECON)"; a do IPCA-15 usa 🔴 e assina
-> "Superintendência de Inteligência Econômica (SIECON)". **São assinaturas
-> diferentes.** Definir um padrão único (provavelmente ECON) e fixar em config.
+> A assinatura e a linha de fonte são fixadas em `ConfigNota.assinatura` e em
+> `_fontes_usadas()`. A linha de fonte cita o Banco Central apenas quando algum
+> número da nota veio do SGS — no IPCA-15 não vem, então cita só o IBGE.
 
 ### 5.4 Regras de redação determinística
 
@@ -146,11 +145,11 @@ Bloco **separado da nota**, exibido abaixo e rotulado:
 
 Recebe **apenas os dados já apurados** (não texto livre) e produz 2–4 frases sob
 a lente da indústria (custos/insumos, margens, massa salarial real, juros). Deve
-seguir `docs` de estilo da GPE: voz ativa, sem clichê, foco no setor produtivo.
+usar voz ativa, sem clichê, foco no setor produtivo.
 A IA **não** toca em nenhum número da nota — só interpreta os fatos já fixados.
 
 Exemplo de prompt (sistema): "Você redige a *leitura para a indústria* de uma
-nota de inflação da CNI. Receberá dados já apurados. Escreva 2 a 4 frases, voz
+nota de inflação. Receberá dados já apurados. Escreva 2 a 4 frases, voz
 ativa, foco em custos de produção, margens e competitividade industrial. Não
 invente números; use apenas os fornecidos. Não edite a nota."
 

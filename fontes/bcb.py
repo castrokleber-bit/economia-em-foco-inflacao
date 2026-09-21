@@ -127,15 +127,19 @@ def _difusao_from_subitens(
 def media_nucleos_12m(mes_ref: str) -> Optional[float]:
     """
     Média aritmética dos acumulados em 12m dos núcleos MS+EX0+DP+EX3+P55.
-    Retorna None silenciosamente se qualquer série falhar.
+
+    Retorna None se QUALQUER uma das séries falhar. Uma média parcial é pior
+    que a ausência do dado: com 4 de 5 séries o número publicado desloca em
+    até 0,09 p.p. (ex.: 12m até mar/2026 = 4,39% com as 5 séries, 4,44% sem a
+    DP) sem qualquer sinal de erro. O bloco de núcleo é opcional na nota —
+    omiti-lo é seguro, publicá-lo errado não é.
     """
     vals = []
     for nome in _CONJUNTO_MEDIA:
         v = _acum12m_sgs(_NUCLEOS[nome], mes_ref)
-        if v is not None:
-            vals.append(v)
-    if not vals:
-        return None
+        if v is None:
+            return None
+        vals.append(v)
     return round(sum(vals) / len(vals), 4)
 
 

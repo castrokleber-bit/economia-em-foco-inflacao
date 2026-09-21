@@ -1,0 +1,241 @@
+/* Nota de Inflação — paleta neutra escura, sem identidade institucional. */
+
+:root {
+  --fundo: #0f172a;
+  --superficie: #1e293b;
+  --superficie-alta: #273449;
+  --borda: #334155;
+  --texto: #e2e8f0;
+  --texto-suave: #94a3b8;
+  --destaque: #2563eb;
+  --destaque-claro: #60a5fa;
+  --erro: #f87171;
+  --erro-fundo: #3f1d1d;
+  --raio: 10px;
+}
+
+* { box-sizing: border-box; }
+
+/* O display:none que o navegador dá a [hidden] vem da folha do agente e perde
+ * para qualquer regra de classe com display (.aviso usa flex, .aviso.erro usa
+ * block). Sem este reforço, esconder um bloco via JS não surte efeito visual e
+ * carregando/erro/resultado aparecem juntos. */
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  padding: 0 16px 64px;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+main, .topo, .rodape { max-width: 760px; margin: 0 auto; }
+
+/* ── Cabeçalho ───────────────────────────────────────────── */
+.topo { padding: 48px 0 24px; }
+
+.topo h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.sub { margin: 6px 0 0; color: var(--texto-suave); font-size: 0.95rem; }
+
+/* ── Cartões ─────────────────────────────────────────────── */
+.cartao {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.campo { margin-bottom: 20px; border: 0; padding: 0; }
+
+.campo > label, legend {
+  display: block;
+  margin-bottom: 8px;
+  padding: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--texto-suave);
+}
+
+.opcoes { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.opcao {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--superficie-alta);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.opcao:hover { border-color: var(--destaque-claro); }
+
+.opcao:has(input:checked) {
+  border-color: var(--destaque);
+  background: color-mix(in srgb, var(--destaque) 18%, var(--superficie-alta));
+}
+
+.opcao input { accent-color: var(--destaque); margin: 0; }
+
+input[type="month"] {
+  width: 100%;
+  padding: 11px 14px;
+  background: var(--superficie-alta);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  color: var(--texto);
+  font: inherit;
+  color-scheme: dark;
+}
+
+input[type="month"]:focus-visible,
+button:focus-visible,
+.opcao:focus-within {
+  outline: 2px solid var(--destaque-claro);
+  outline-offset: 2px;
+}
+
+button {
+  padding: 11px 22px;
+  background: var(--destaque);
+  border: 1px solid transparent;
+  border-radius: var(--raio);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.15s;
+}
+
+button:hover:not(:disabled) { filter: brightness(1.12); }
+button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+#btn-gerar { width: 100%; }
+
+/* ── Avisos ──────────────────────────────────────────────── */
+.aviso {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  background: var(--superficie);
+  color: var(--texto-suave);
+}
+
+.aviso.erro {
+  display: block;
+  border-color: var(--erro);
+  background: var(--erro-fundo);
+  color: #fecaca;
+}
+
+.aviso.erro strong { display: block; margin-bottom: 4px; color: var(--erro); }
+
+.spinner {
+  width: 15px;
+  height: 15px;
+  border: 2px solid var(--borda);
+  border-top-color: var(--destaque-claro);
+  border-radius: 50%;
+  animation: girar 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes girar { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner { animation-duration: 3s; }
+}
+
+/* ── Resultado ───────────────────────────────────────────── */
+.cabecalho-resultado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.cabecalho-resultado h2 { margin: 0; font-size: 1.05rem; font-weight: 650; }
+
+#nota-texto {
+  margin: 0;
+  padding: 20px;
+  background: var(--fundo);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  /* A nota vai para o WhatsApp: preservar quebras e não ligar caracteres. */
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-variant-ligatures: none;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* ── Proveniência ────────────────────────────────────────── */
+.proveniencia { margin-top: 18px; }
+
+.proveniencia summary {
+  cursor: pointer;
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  padding: 4px 0;
+}
+
+.proveniencia summary:hover { color: var(--destaque-claro); }
+
+#provenencia {
+  width: 100%;
+  margin-top: 12px;
+  border-collapse: collapse;
+  font-size: 0.83rem;
+}
+
+#provenencia th, #provenencia td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--borda);
+  vertical-align: top;
+}
+
+#provenencia th { color: var(--texto-suave); font-weight: 600; }
+#provenencia td.fonte { color: var(--texto-suave); font-family: ui-monospace, Consolas, monospace; font-size: 0.78rem; }
+
+.rodape-prov { color: var(--texto-suave); font-size: 0.8rem; margin: 12px 0 0; }
+
+/* ── Rodapé ──────────────────────────────────────────────── */
+.rodape {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--borda);
+  color: var(--texto-suave);
+  font-size: 0.82rem;
+}
+
+.rodape p { margin: 0 0 8px; }
+.rodape a { color: var(--destaque-claro); }
+
+/* ── Telas estreitas ─────────────────────────────────────── */
+@media (max-width: 600px) {
+  .topo { padding-top: 32px; }
+  .cartao { padding: 18px; }
+  .cabecalho-resultado { flex-direction: column; align-items: stretch; }
+}

@@ -1,0 +1,46 @@
+{
+  "indicador": "IPCA-15",
+  "mes_ref": "202605",
+  "mes_ant": "202604",
+  "variacao_mensal": 0.67,
+  "variacao_mensal_anterior": 0.88,
+  "acum_12m": 4.39,
+  "acum_12m_anterior": 4.14,
+  "grupos": [
+    {
+      "cat_id": 7170,
+      "nome": "1.Alimentação e bebidas",
+      "nivel": 1,
+      "variacao": 1.38,
+      "peso": 21.45,
+      "fonte": "sintetico"
+    },
+    {
+      "cat_id": 7445,
+      "nome": "2.Habitação",
+      "nivel": 1,
+      "variacao": 1.03,
+      "peso": 15.2,
+      "fonte": "sintetico"
+    }
+  ],
+  "subitens": [
+    {
+      "cat_id": 1101,
+      "nome": "1101.alimentação no domicílio",
+      "nivel": 2,
+      "variacao": 1.73,
+      "peso": 10.5,
+      "fonte": "sintetico"
+    }
+  ],
+  "difusao": 65.12,
+  "difusao_anterior": null,
+  "nucleo_12m": null,
+  "nucleo_12m_anterior": null,
+  "projecao_focus": null,
+  "url_ibge": null,
+  "variacao_mesmo_mes_ano_anterior": null,
+  "fonte_variacao": "",
+  "fonte_acum": ""
+}

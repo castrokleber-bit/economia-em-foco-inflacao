@@ -89,3 +89,35 @@ def test_enriquecer_mes_sem_dado_retorna_none():
     # campos ficam None silenciosamente
     assert r.difusao is None
     assert r.nucleo_12m is None
+
+
+# ---------------------------------------------------------------------------
+# Regressao: media dos nucleos e tudo-ou-nada (nao faz rede)
+# ---------------------------------------------------------------------------
+
+def test_media_nucleos_retorna_none_se_uma_serie_falhar(monkeypatch):
+    """
+    Uma serie que nao responde nao pode virar media parcial.
+
+    Com 4 das 5 series a media desloca ate 0,09 p.p. (12m ate mar/2026:
+    4,39% com as 5, 4,44% sem a DP) e a nota sairia com o numero errado sem
+    nenhum sinal de erro. O bloco de nucleo e opcional — omitir e seguro.
+    """
+    import fontes.bcb as bcb
+
+    def falha_so_na_dp(codigo, mes_ref):
+        return None if codigo == bcb._NUCLEOS["DP"] else 4.50
+
+    monkeypatch.setattr(bcb, "_acum12m_sgs", falha_so_na_dp)
+    assert bcb.media_nucleos_12m("202604") is None
+
+
+def test_media_nucleos_calcula_com_as_cinco_series(monkeypatch):
+    """Com as 5 series presentes, a media e a aritmetica simples."""
+    import fontes.bcb as bcb
+
+    valores = {"MS": 4.40, "EX0": 4.50, "DP": 4.00, "EX3": 4.60, "P55": 4.50}
+    por_codigo = {bcb._NUCLEOS[k]: v for k, v in valores.items()}
+    monkeypatch.setattr(bcb, "_acum12m_sgs", lambda c, m: por_codigo[c])
+
+    assert bcb.media_nucleos_12m("202604") == pytest.approx(4.40, abs=1e-9)

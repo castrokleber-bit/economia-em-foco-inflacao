@@ -1,0 +1,3670 @@
+{
+  "indicador": "IPCA",
+  "mes_ref": "202604",
+  "mes_ant": "202603",
+  "variacao_mensal": 0.67,
+  "variacao_mensal_anterior": 0.88,
+  "acum_12m": 4.39,
+  "acum_12m_anterior": 4.14,
+  "grupos": [
+    {
+      "cat_id": 7170,
+      "nome": "1.Alimentação e bebidas",
+      "nivel": 1,
+      "variacao": 1.34,
+      "peso": 21.4524,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7660,
+      "nome": "6.Saúde e cuidados pessoais",
+      "nivel": 1,
+      "variacao": 1.16,
+      "peso": 13.5984,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7445,
+      "nome": "2.Habitação",
+      "nivel": 1,
+      "variacao": 0.63,
+      "peso": 15.2007,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7712,
+      "nome": "7.Despesas pessoais",
+      "nivel": 1,
+      "variacao": 0.35,
+      "peso": 10.2667,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7786,
+      "nome": "9.Comunicação",
+      "nivel": 1,
+      "variacao": 0.57,
+      "peso": 4.521,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7558,
+      "nome": "4.Vestuário",
+      "nivel": 1,
+      "variacao": 0.52,
+      "peso": 4.6345,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7486,
+      "nome": "3.Artigos de residência",
+      "nivel": 1,
+      "variacao": 0.65,
+      "peso": 3.466,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7625,
+      "nome": "5.Transportes",
+      "nivel": 1,
+      "variacao": 0.06,
+      "peso": 20.6094,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7766,
+      "nome": "8.Educação",
+      "nivel": 1,
+      "variacao": 0.06,
+      "peso": 6.2508,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    }
+  ],
+  "subitens": [
+    {
+      "cat_id": 7171,
+      "nome": "11.Alimentação no domicílio",
+      "nivel": 2,
+      "variacao": 1.64,
+      "peso": 15.3837,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7656,
+      "nome": "5104.Combustíveis (veículos)",
+      "nivel": 3,
+      "variacao": 1.8,
+      "peso": 6.3057,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7356,
+      "nome": "1111.Leites e derivados",
+      "nivel": 3,
+      "variacao": 5.95,
+      "peso": 1.7675,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7657,
+      "nome": "5104001.Gasolina",
+      "nivel": 4,
+      "variacao": 1.86,
+      "peso": 5.2779,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12393,
+      "nome": "1111004.Leite longa vida",
+      "nivel": 4,
+      "variacao": 13.66,
+      "peso": 0.6828,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7479,
+      "nome": "22.Combustíveis e energia",
+      "nivel": 2,
+      "variacao": 1.38,
+      "peso": 5.3642,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7200,
+      "nome": "1103.Tubérculos, raízes e legumes",
+      "nivel": 3,
+      "variacao": 8.45,
+      "peso": 0.7618,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7697,
+      "nome": "63.Cuidados pessoais",
+      "nivel": 2,
+      "variacao": 1.57,
+      "peso": 3.9817,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7698,
+      "nome": "6301.Higiene pessoal",
+      "nivel": 3,
+      "variacao": 1.57,
+      "peso": 3.9817,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7662,
+      "nome": "6101.Produtos farmacêuticos",
+      "nivel": 3,
+      "variacao": 1.77,
+      "peso": 3.4523,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7661,
+      "nome": "61.Produtos farmacêuticos e óticos",
+      "nivel": 2,
+      "variacao": 1.62,
+      "peso": 3.692,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7482,
+      "nome": "2201004.Gás de botijão",
+      "nivel": 4,
+      "variacao": 3.74,
+      "peso": 1.2197,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7480,
+      "nome": "2201.Combustíveis (domésticos)",
+      "nivel": 3,
+      "variacao": 3.31,
+      "peso": 1.3734,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7283,
+      "nome": "1107.Carnes",
+      "nivel": 3,
+      "variacao": 1.59,
+      "peso": 2.8055,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7713,
+      "nome": "71.Serviços pessoais",
+      "nivel": 2,
+      "variacao": 0.67,
+      "peso": 6.3234,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7714,
+      "nome": "7101.Serviços pessoais",
+      "nivel": 3,
+      "variacao": 0.67,
+      "peso": 6.3234,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7683,
+      "nome": "62.Serviços de saúde",
+      "nivel": 2,
+      "variacao": 0.61,
+      "peso": 5.9247,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7432,
+      "nome": "12.Alimentação fora do domicílio",
+      "nivel": 2,
+      "variacao": 0.59,
+      "peso": 6.0687,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7433,
+      "nome": "1201.Alimentação fora do domicílio",
+      "nivel": 3,
+      "variacao": 0.59,
+      "peso": 6.0687,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7484,
+      "nome": "2202.Energia elétrica residencial",
+      "nivel": 3,
+      "variacao": 0.72,
+      "peso": 3.9908,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7485,
+      "nome": "2202003.Energia elétrica residencial",
+      "nivel": 4,
+      "variacao": 0.72,
+      "peso": 3.9908,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7640,
+      "nome": "5102.Veículo próprio",
+      "nivel": 3,
+      "variacao": 0.25,
+      "peso": 11.0698,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7787,
+      "nome": "91.Comunicação",
+      "nivel": 2,
+      "variacao": 0.57,
+      "peso": 4.521,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7788,
+      "nome": "9101.Comunicação",
+      "nivel": 3,
+      "variacao": 0.57,
+      "peso": 4.521,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7446,
+      "nome": "21.Encargos e manutenção",
+      "nivel": 2,
+      "variacao": 0.22,
+      "peso": 9.8366,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7704,
+      "nome": "6301011.Perfume",
+      "nivel": 4,
+      "variacao": 1.94,
+      "peso": 1.0708,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7695,
+      "nome": "6203.Plano de saúde",
+      "nivel": 3,
+      "variacao": 0.49,
+      "peso": 4.1286,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7696,
+      "nome": "6203001.Plano de saúde",
+      "nivel": 4,
+      "variacao": 0.49,
+      "peso": 4.1286,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7434,
+      "nome": "1201001.Refeição",
+      "nivel": 4,
+      "variacao": 0.54,
+      "peso": 3.6101,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7216,
+      "nome": "1103044.Cenoura",
+      "nivel": 4,
+      "variacao": 26.63,
+      "peso": 0.0692,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7172,
+      "nome": "1101.Cereais, leguminosas e oleaginosas",
+      "nivel": 3,
+      "variacao": 2.57,
+      "peso": 0.6979,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7212,
+      "nome": "1103028.Tomate",
+      "nivel": 4,
+      "variacao": 6.13,
+      "peso": 0.2806,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7674,
+      "nome": "6101014.Hipotensor e hipocolesterolêmico",
+      "nivel": 4,
+      "variacao": 2.96,
+      "peso": 0.5827,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7720,
+      "nome": "7101010.Empregado doméstico",
+      "nivel": 4,
+      "variacao": 0.59,
+      "peso": 2.7272,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7727,
+      "nome": "7101076.Serviço bancário",
+      "nivel": 4,
+      "variacao": 0.93,
+      "peso": 1.6919,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7647,
+      "nome": "5102011.Conserto de automóvel",
+      "nivel": 4,
+      "variacao": 0.84,
+      "peso": 1.8111,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7215,
+      "nome": "1103043.Cebola",
+      "nivel": 4,
+      "variacao": 11.76,
+      "peso": 0.1284,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7794,
+      "nome": "9101019.Aparelho telefônico",
+      "nivel": 4,
+      "variacao": 2.09,
+      "peso": 0.6885,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7559,
+      "nome": "41.Roupas",
+      "nivel": 2,
+      "variacao": 0.46,
+      "peso": 3.09,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7254,
+      "nome": "1106.Frutas",
+      "nivel": 3,
+      "variacao": 1.22,
+      "peso": 1.1525,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7435,
+      "nome": "1201003.Lanche",
+      "nivel": 4,
+      "variacao": 0.71,
+      "peso": 1.9268,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7521,
+      "nome": "32.Aparelhos eletroeletrônicos",
+      "nivel": 2,
+      "variacao": 0.96,
+      "peso": 1.3873,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7173,
+      "nome": "1101002.Arroz",
+      "nivel": 4,
+      "variacao": 2.53,
+      "peso": 0.493,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7447,
+      "nome": "2101.Aluguel e taxas",
+      "nivel": 3,
+      "variacao": 0.16,
+      "peso": 7.784,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7626,
+      "nome": "51.Transportes",
+      "nivel": 2,
+      "variacao": 0.06,
+      "peso": 20.6094,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7699,
+      "nome": "6301001.Produto para cabelo",
+      "nivel": 4,
+      "variacao": 1.9,
+      "peso": 0.6503,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7684,
+      "nome": "6201.Serviços médicos e dentários",
+      "nivel": 3,
+      "variacao": 1.02,
+      "peso": 1.198,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7202,
+      "nome": "1103003.Batata-inglesa",
+      "nivel": 4,
+      "variacao": 6.57,
+      "peso": 0.1814,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7659,
+      "nome": "5104003.Óleo diesel",
+      "nivel": 4,
+      "variacao": 4.46,
+      "peso": 0.2622,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7302,
+      "nome": "1107099.Costela",
+      "nivel": 4,
+      "variacao": 2.95,
+      "peso": 0.3587,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7572,
+      "nome": "4102.Roupa feminina",
+      "nivel": 3,
+      "variacao": 0.76,
+      "peso": 1.3308,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47669,
+      "nome": "9101008.Plano de telefonia móvel",
+      "nivel": 4,
+      "variacao": 0.75,
+      "peso": 1.2752,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47654,
+      "nome": "7101011.Cabeleireiro e barbeiro",
+      "nivel": 4,
+      "variacao": 0.75,
+      "peso": 1.115,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7372,
+      "nome": "1112.Panificados",
+      "nivel": 3,
+      "variacao": 0.49,
+      "peso": 1.7013,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7522,
+      "nome": "3201.Eletrodomésticos e equipamentos",
+      "nivel": 3,
+      "variacao": 1.05,
+      "peso": 0.7929,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 101644,
+      "nome": "6301006.Produto para pele",
+      "nivel": 4,
+      "variacao": 2.0,
+      "peso": 0.4004,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7293,
+      "nome": "1107087.Chã de dentro",
+      "nivel": 4,
+      "variacao": 2.5,
+      "peso": 0.3171,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7291,
+      "nome": "1107084.Contrafilé",
+      "nivel": 4,
+      "variacao": 1.53,
+      "peso": 0.483,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7488,
+      "nome": "3101.Mobiliário",
+      "nivel": 3,
+      "variacao": 0.62,
+      "peso": 1.1863,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7487,
+      "nome": "31.Móveis e utensílios",
+      "nivel": 2,
+      "variacao": 0.42,
+      "peso": 1.7311,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7241,
+      "nome": "1105.Hortaliças e verduras",
+      "nivel": 3,
+      "variacao": 2.73,
+      "peso": 0.2631,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7643,
+      "nome": "5102005.Seguro voluntário de veículo",
+      "nivel": 4,
+      "variacao": 0.97,
+      "peso": 0.7431,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7300,
+      "nome": "1107095.Acém",
+      "nivel": 4,
+      "variacao": 2.62,
+      "peso": 0.2723,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7573,
+      "nome": "4102002.Calça comprida feminina",
+      "nivel": 4,
+      "variacao": 2.22,
+      "peso": 0.3165,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47641,
+      "nome": "3202028.Computador pessoal",
+      "nivel": 4,
+      "variacao": 2.94,
+      "peso": 0.2343,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7604,
+      "nome": "42.Calçados e acessórios",
+      "nivel": 2,
+      "variacao": 0.56,
+      "peso": 1.2133,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7605,
+      "nome": "4201.Calçados e acessórios",
+      "nivel": 3,
+      "variacao": 0.56,
+      "peso": 1.2133,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7686,
+      "nome": "6201003.Dentista",
+      "nivel": 4,
+      "variacao": 1.13,
+      "peso": 0.5747,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7454,
+      "nome": "2103.Reparos",
+      "nivel": 3,
+      "variacao": 0.48,
+      "peso": 1.324,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7685,
+      "nome": "6201002.Médico",
+      "nivel": 4,
+      "variacao": 1.15,
+      "peso": 0.5562,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12396,
+      "nome": "1114004.Açaí (emulsão)",
+      "nivel": 4,
+      "variacao": 6.95,
+      "peso": 0.0893,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107619,
+      "nome": "1111011.Queijo",
+      "nivel": 4,
+      "variacao": 1.13,
+      "peso": 0.5396,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7663,
+      "nome": "6101001.Anti-infeccioso e antibiótico",
+      "nivel": 4,
+      "variacao": 2.46,
+      "peso": 0.2406,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7448,
+      "nome": "2101001.Aluguel residencial",
+      "nivel": 4,
+      "variacao": 0.15,
+      "peso": 3.6506,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7709,
+      "nome": "6301016.Sabonete",
+      "nivel": 4,
+      "variacao": 1.61,
+      "peso": 0.342,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7523,
+      "nome": "3201001.Refrigerador",
+      "nivel": 4,
+      "variacao": 1.76,
+      "peso": 0.3084,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7260,
+      "nome": "1106008.Banana - prata",
+      "nivel": 4,
+      "variacao": 2.51,
+      "peso": 0.2081,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7375,
+      "nome": "1112015.Pão francês",
+      "nivel": 4,
+      "variacao": 0.62,
+      "peso": 0.8433,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7710,
+      "nome": "6301017.Papel higiênico",
+      "nivel": 4,
+      "variacao": 2.65,
+      "peso": 0.1977,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7673,
+      "nome": "6101013.Psicotrópico e anorexígeno",
+      "nivel": 4,
+      "variacao": 1.61,
+      "peso": 0.3161,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7270,
+      "nome": "1106021.Melancia",
+      "nivel": 4,
+      "variacao": 13.77,
+      "peso": 0.0361,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7541,
+      "nome": "3202.Tv, som e informática",
+      "nivel": 3,
+      "variacao": 0.84,
+      "peso": 0.5944,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107641,
+      "nome": "2103042.Mão de obra",
+      "nivel": 4,
+      "variacao": 0.74,
+      "peso": 0.6195,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7666,
+      "nome": "6101004.Antigripal e antitussígeno",
+      "nivel": 4,
+      "variacao": 2.12,
+      "peso": 0.2192,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7355,
+      "nome": "1110044.Ovo de galinha",
+      "nivel": 4,
+      "variacao": 1.73,
+      "peso": 0.2584,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7268,
+      "nome": "1106019.Manga",
+      "nivel": 4,
+      "variacao": 6.3,
+      "peso": 0.0693,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7658,
+      "nome": "5104002.Etanol",
+      "nivel": 4,
+      "variacao": 0.62,
+      "peso": 0.7035,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12222,
+      "nome": "1101073.Feijão - carioca (rajado)",
+      "nivel": 4,
+      "variacao": 3.47,
+      "peso": 0.1252,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7664,
+      "nome": "6101002.Analgésico e antitérmico",
+      "nivel": 4,
+      "variacao": 0.7,
+      "peso": 0.6084,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7665,
+      "nome": "6101003.Anti-inflamatório e antirreumático",
+      "nivel": 4,
+      "variacao": 2.67,
+      "peso": 0.1614,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7671,
+      "nome": "6101010.Vitamina e fortificante",
+      "nivel": 4,
+      "variacao": 1.9,
+      "peso": 0.2285,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7294,
+      "nome": "1107088.Alcatra",
+      "nivel": 4,
+      "variacao": 1.17,
+      "peso": 0.363,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7295,
+      "nome": "1107089.Patinho",
+      "nivel": 4,
+      "variacao": 2.32,
+      "peso": 0.1804,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7451,
+      "nome": "2101004.Taxa de água e esgoto",
+      "nivel": 4,
+      "variacao": 0.22,
+      "peso": 1.8971,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7490,
+      "nome": "3101003.Móvel para quarto",
+      "nivel": 4,
+      "variacao": 0.78,
+      "peso": 0.5388,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7415,
+      "nome": "1116.Sal e condimentos",
+      "nivel": 3,
+      "variacao": 1.1,
+      "peso": 0.3743,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7492,
+      "nome": "3101015.Móvel para copa e cozinha",
+      "nivel": 4,
+      "variacao": 1.64,
+      "peso": 0.2364,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7618,
+      "nome": "4301002.Joia",
+      "nivel": 4,
+      "variacao": 1.82,
+      "peso": 0.2138,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7767,
+      "nome": "81.Cursos, leitura e papelaria",
+      "nivel": 2,
+      "variacao": 0.06,
+      "peso": 6.2508,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7276,
+      "nome": "1106028.Uva",
+      "nivel": 4,
+      "variacao": 4.44,
+      "peso": 0.0808,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107661,
+      "nome": "6301007.Produto para higiene bucal",
+      "nivel": 4,
+      "variacao": 1.27,
+      "peso": 0.2813,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7561,
+      "nome": "4101002.Calça comprida masculina",
+      "nivel": 4,
+      "variacao": 1.14,
+      "peso": 0.3057,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7690,
+      "nome": "6202.Serviços laboratoriais e hospitalares",
+      "nivel": 3,
+      "variacao": 0.59,
+      "peso": 0.5981,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7615,
+      "nome": "43.Joias e bijuterias",
+      "nivel": 2,
+      "variacao": 1.22,
+      "peso": 0.2801,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7616,
+      "nome": "4301.Joias e bijuterias",
+      "nivel": 3,
+      "variacao": 1.22,
+      "peso": 0.2801,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7614,
+      "nome": "4201063.Tênis",
+      "nivel": 4,
+      "variacao": 0.69,
+      "peso": 0.4722,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7210,
+      "nome": "1103026.Pimentão",
+      "nivel": 4,
+      "variacao": 14.1,
+      "peso": 0.0221,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7526,
+      "nome": "3201006.Máquina de lavar roupa",
+      "nivel": 4,
+      "variacao": 1.49,
+      "peso": 0.2097,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7677,
+      "nome": "6101064.Antidiabético",
+      "nivel": 4,
+      "variacao": 1.7,
+      "peso": 0.1747,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7707,
+      "nome": "6301014.Desodorante",
+      "nivel": 4,
+      "variacao": 0.73,
+      "peso": 0.4169,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7298,
+      "nome": "1107093.Músculo",
+      "nivel": 4,
+      "variacao": 1.83,
+      "peso": 0.1562,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7418,
+      "nome": "1116010.Alho",
+      "nivel": 4,
+      "variacao": 2.79,
+      "peso": 0.0955,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7461,
+      "nome": "2104.Artigos de limpeza",
+      "nivel": 3,
+      "variacao": 0.37,
+      "peso": 0.7286,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12428,
+      "nome": "8104006.Atividades físicas",
+      "nivel": 4,
+      "variacao": 0.68,
+      "peso": 0.3954,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7299,
+      "nome": "1107094.Pá",
+      "nivel": 4,
+      "variacao": 2.26,
+      "peso": 0.116,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47652,
+      "nome": "6101148.Neurológico",
+      "nivel": 4,
+      "variacao": 1.95,
+      "peso": 0.1349,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7373,
+      "nome": "1112003.Biscoito",
+      "nivel": 4,
+      "variacao": 0.52,
+      "peso": 0.4766,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7449,
+      "nome": "2101002.Condomínio",
+      "nivel": 4,
+      "variacao": 0.11,
+      "peso": 2.2345,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7654,
+      "nome": "5102053.Motocicleta",
+      "nivel": 4,
+      "variacao": 0.42,
+      "peso": 0.6033,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7271,
+      "nome": "1106022.Melão",
+      "nivel": 4,
+      "variacao": 10.38,
+      "peso": 0.0229,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12394,
+      "nome": "1111019.Iogurte e bebidas lácteas",
+      "nivel": 4,
+      "variacao": 1.35,
+      "peso": 0.1814,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47651,
+      "nome": "6101011.Hormonal",
+      "nivel": 4,
+      "variacao": 1.2,
+      "peso": 0.1992,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7631,
+      "nome": "5101006.Ônibus intermunicipal",
+      "nivel": 4,
+      "variacao": 0.55,
+      "peso": 0.4167,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 101642,
+      "nome": "6301004.Produto para barba",
+      "nivel": 4,
+      "variacao": 1.81,
+      "peso": 0.1247,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7384,
+      "nome": "1113.Óleos e gorduras",
+      "nivel": 3,
+      "variacao": 0.51,
+      "peso": 0.424,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107621,
+      "nome": "1114083.Refrigerante e água mineral",
+      "nivel": 4,
+      "variacao": 0.41,
+      "peso": 0.5372,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7548,
+      "nome": "33.Consertos e manutenção",
+      "nivel": 2,
+      "variacao": 0.62,
+      "peso": 0.3477,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7549,
+      "nome": "3301.Consertos e manutenção",
+      "nivel": 3,
+      "variacao": 0.62,
+      "peso": 0.3477,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7560,
+      "nome": "4101.Roupa masculina",
+      "nivel": 3,
+      "variacao": 0.19,
+      "peso": 1.1755,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7669,
+      "nome": "6101007.Antialérgico e broncodilatador",
+      "nivel": 4,
+      "variacao": 1.28,
+      "peso": 0.1701,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107678,
+      "nome": "8104.Cursos diversos",
+      "nivel": 3,
+      "variacao": 0.27,
+      "peso": 0.8143,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7248,
+      "nome": "1105010.Repolho",
+      "nivel": 4,
+      "variacao": 10.32,
+      "peso": 0.02,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7279,
+      "nome": "1106039.Laranja - pera",
+      "nivel": 4,
+      "variacao": 2.01,
+      "peso": 0.1052,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7242,
+      "nome": "1105001.Alface",
+      "nivel": 4,
+      "variacao": 1.59,
+      "peso": 0.1279,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107617,
+      "nome": "1110009.Frango inteiro",
+      "nivel": 4,
+      "variacao": 0.56,
+      "peso": 0.3612,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7644,
+      "nome": "5102007.Óleo lubrificante",
+      "nivel": 4,
+      "variacao": 1.55,
+      "peso": 0.1275,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7692,
+      "nome": "6202004.Hospitalização e cirurgia",
+      "nivel": 4,
+      "variacao": 0.54,
+      "peso": 0.3635,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7303,
+      "nome": "1108.Pescados",
+      "nivel": 3,
+      "variacao": 0.99,
+      "peso": 0.1879,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7589,
+      "nome": "4103002.Calça comprida infantil",
+      "nivel": 4,
+      "variacao": 2.61,
+      "peso": 0.0745,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7789,
+      "nome": "9101001.Correio",
+      "nivel": 4,
+      "variacao": 2.98,
+      "peso": 0.0649,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7280,
+      "nome": "1106051.Morango",
+      "nivel": 4,
+      "variacao": 17.35,
+      "peso": 0.0106,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7385,
+      "nome": "1113013.Óleo de soja",
+      "nivel": 4,
+      "variacao": 0.73,
+      "peso": 0.249,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7670,
+      "nome": "6101009.Gastroprotetor",
+      "nivel": 4,
+      "variacao": 1.23,
+      "peso": 0.1499,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7587,
+      "nome": "4103.Roupa infantil",
+      "nivel": 3,
+      "variacao": 0.29,
+      "peso": 0.5836,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7579,
+      "nome": "4102010.Lingerie",
+      "nivel": 4,
+      "variacao": 1.54,
+      "peso": 0.1063,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12412,
+      "nome": "6101006.Dermatológico",
+      "nivel": 4,
+      "variacao": 1.04,
+      "peso": 0.1508,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107659,
+      "nome": "6101051.Oftalmológico",
+      "nivel": 4,
+      "variacao": 1.4,
+      "peso": 0.1158,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12421,
+      "nome": "7101005.Manicure",
+      "nivel": 4,
+      "variacao": 0.36,
+      "peso": 0.4448,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47657,
+      "nome": "7201015.Tratamento de animais (clínica)",
+      "nivel": 4,
+      "variacao": 0.59,
+      "peso": 0.271,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7249,
+      "nome": "1105012.Cheiro-verde",
+      "nivel": 4,
+      "variacao": 3.04,
+      "peso": 0.0509,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7606,
+      "nome": "4201002.Sapato masculino",
+      "nivel": 4,
+      "variacao": 0.9,
+      "peso": 0.1666,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7607,
+      "nome": "4201003.Sapato feminino",
+      "nivel": 4,
+      "variacao": 0.52,
+      "peso": 0.2819,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12302,
+      "nome": "1108080.Peixe - tilápia",
+      "nivel": 4,
+      "variacao": 3.34,
+      "peso": 0.0413,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7466,
+      "nome": "2104009.Sabão em pó",
+      "nivel": 4,
+      "variacao": 0.63,
+      "peso": 0.2212,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7359,
+      "nome": "1111009.Leite em pó",
+      "nivel": 4,
+      "variacao": 0.63,
+      "peso": 0.2131,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12395,
+      "nome": "1113040.Margarina",
+      "nivel": 4,
+      "variacao": 1.25,
+      "peso": 0.1043,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7577,
+      "nome": "4102008.Blusa",
+      "nivel": 4,
+      "variacao": 0.25,
+      "peso": 0.5219,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12379,
+      "nome": "1109056.Carne-seca e de sol",
+      "nivel": 4,
+      "variacao": 1.21,
+      "peso": 0.1009,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7428,
+      "nome": "1116071.Tempero misto",
+      "nivel": 4,
+      "variacao": 2.05,
+      "peso": 0.0598,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7641,
+      "nome": "5102001.Automóvel novo",
+      "nivel": 4,
+      "variacao": 0.04,
+      "peso": 3.0019,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 101448,
+      "nome": "1107097.Capa de filé",
+      "nivel": 4,
+      "variacao": 3.39,
+      "peso": 0.0339,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7390,
+      "nome": "1114001.Suco de frutas",
+      "nivel": 4,
+      "variacao": 0.87,
+      "peso": 0.1318,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107633,
+      "nome": "1201007.Refrigerante e água mineral",
+      "nivel": 4,
+      "variacao": 0.9,
+      "peso": 0.1215,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12398,
+      "nome": "2103032.Revestimento de piso e parede",
+      "nivel": 4,
+      "variacao": 0.49,
+      "peso": 0.2323,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7493,
+      "nome": "3101017.Colchão",
+      "nivel": 4,
+      "variacao": 8.13,
+      "peso": 0.0132,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12420,
+      "nome": "6301002.Fralda descartável",
+      "nivel": 4,
+      "variacao": 0.47,
+      "peso": 0.225,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107666,
+      "nome": "7201020.Alimento para animais",
+      "nivel": 4,
+      "variacao": 0.31,
+      "peso": 0.348,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7301,
+      "nome": "1107096.Peito",
+      "nivel": 4,
+      "variacao": 6.89,
+      "peso": 0.0152,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7438,
+      "nome": "1201009.Cafezinho",
+      "nivel": 4,
+      "variacao": 2.04,
+      "peso": 0.0485,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7721,
+      "nome": "7101014.Depilação",
+      "nivel": 4,
+      "variacao": 1.58,
+      "peso": 0.0637,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47655,
+      "nome": "7101144.Sobrancelha",
+      "nivel": 4,
+      "variacao": 0.91,
+      "peso": 0.1124,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47667,
+      "nome": "8102008.Livro não didático",
+      "nivel": 4,
+      "variacao": 0.97,
+      "peso": 0.1073,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7195,
+      "nome": "1102023.Farinha de mandioca",
+      "nivel": 4,
+      "variacao": 0.85,
+      "peso": 0.1105,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47627,
+      "nome": "1111021.Requeijão",
+      "nivel": 4,
+      "variacao": 1.48,
+      "peso": 0.0585,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7574,
+      "nome": "4102003.Agasalho feminino",
+      "nivel": 4,
+      "variacao": 3.34,
+      "peso": 0.0255,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7632,
+      "nome": "5101007.Ônibus interestadual",
+      "nivel": 4,
+      "variacao": 0.74,
+      "peso": 0.115,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107654,
+      "nome": "5102020.Automóvel usado",
+      "nivel": 4,
+      "variacao": 0.06,
+      "peso": 1.5065,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7777,
+      "nome": "8102.Leitura",
+      "nivel": 3,
+      "variacao": 0.16,
+      "peso": 0.5519,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12399,
+      "nome": "2103055.Telha",
+      "nivel": 4,
+      "variacao": 2.06,
+      "peso": 0.0388,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7464,
+      "nome": "2104005.Água sanitária",
+      "nivel": 4,
+      "variacao": 1.38,
+      "peso": 0.0595,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7691,
+      "nome": "6202003.Exame de laboratório",
+      "nivel": 4,
+      "variacao": 0.7,
+      "peso": 0.1076,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12416,
+      "nome": "6202006.Exame de imagem",
+      "nivel": 4,
+      "variacao": 0.64,
+      "peso": 0.127,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7782,
+      "nome": "8103.Papelaria",
+      "nivel": 3,
+      "variacao": 0.56,
+      "peso": 0.1401,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7176,
+      "nome": "1101052.Feijão - preto",
+      "nivel": 4,
+      "variacao": 1.8,
+      "peso": 0.0381,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7230,
+      "nome": "1104032.Sorvete",
+      "nivel": 4,
+      "variacao": 0.46,
+      "peso": 0.1627,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7256,
+      "nome": "1106003.Abacaxi",
+      "nivel": 4,
+      "variacao": 3.11,
+      "peso": 0.022,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12294,
+      "nome": "1107091.Lagarto comum",
+      "nivel": 4,
+      "variacao": 0.98,
+      "peso": 0.0764,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7367,
+      "nome": "1111031.Manteiga",
+      "nivel": 4,
+      "variacao": 1.14,
+      "peso": 0.0585,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107638,
+      "nome": "2103039.Cimento",
+      "nivel": 4,
+      "variacao": 2.69,
+      "peso": 0.0259,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47642,
+      "nome": "3301088.Conserto de aparelho celular",
+      "nivel": 4,
+      "variacao": 1.35,
+      "peso": 0.054,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47643,
+      "nome": "3301130.Conserto de bicicleta",
+      "nivel": 4,
+      "variacao": 0.3,
+      "peso": 0.2234,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7649,
+      "nome": "5102015.Pedágio",
+      "nivel": 4,
+      "variacao": 0.81,
+      "peso": 0.0874,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7653,
+      "nome": "5102037.Pintura de veículo",
+      "nivel": 4,
+      "variacao": 4.22,
+      "peso": 0.016,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7244,
+      "nome": "1105004.Coentro",
+      "nivel": 4,
+      "variacao": 6.78,
+      "peso": 0.0089,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7253,
+      "nome": "1105019.Brócolis",
+      "nivel": 4,
+      "variacao": 1.89,
+      "peso": 0.0333,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7358,
+      "nome": "1111008.Leite condensado",
+      "nivel": 4,
+      "variacao": 2.68,
+      "peso": 0.0211,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7377,
+      "nome": "1112018.Pão de forma",
+      "nivel": 4,
+      "variacao": 0.5,
+      "peso": 0.1121,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107639,
+      "nome": "2103040.Tijolo",
+      "nivel": 4,
+      "variacao": 2.62,
+      "peso": 0.0233,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7555,
+      "nome": "3301022.Reforma de estofado",
+      "nivel": 4,
+      "variacao": 1.3,
+      "peso": 0.0476,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7711,
+      "nome": "6301020.Artigos de maquiagem",
+      "nivel": 4,
+      "variacao": 0.39,
+      "peso": 0.1602,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7733,
+      "nome": "7201006.Clube",
+      "nivel": 4,
+      "variacao": 0.67,
+      "peso": 0.0828,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7785,
+      "nome": "8103014.Artigos de papelaria",
+      "nivel": 4,
+      "variacao": 0.68,
+      "peso": 0.089,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107608,
+      "nome": "1102029.Massa semipreparada",
+      "nivel": 4,
+      "variacao": 0.38,
+      "peso": 0.1245,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 109463,
+      "nome": "1116005.Atomatado",
+      "nivel": 4,
+      "variacao": 0.38,
+      "peso": 0.1223,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47637,
+      "nome": "2104085.Amaciante e alvejante",
+      "nivel": 4,
+      "variacao": 0.29,
+      "peso": 0.166,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7629,
+      "nome": "5101002.Táxi",
+      "nivel": 4,
+      "variacao": 0.26,
+      "peso": 0.2052,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7648,
+      "nome": "5102013.Estacionamento",
+      "nivel": 4,
+      "variacao": 0.84,
+      "peso": 0.0627,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7272,
+      "nome": "1106023.Pera",
+      "nivel": 4,
+      "variacao": 1.57,
+      "peso": 0.026,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7275,
+      "nome": "1106027.Tangerina",
+      "nivel": 4,
+      "variacao": 0.45,
+      "peso": 0.0903,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7285,
+      "nome": "1107009.Fígado",
+      "nivel": 4,
+      "variacao": 2.5,
+      "peso": 0.0165,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12431,
+      "nome": "1108075.Peixe - salmão",
+      "nivel": 4,
+      "variacao": 3.05,
+      "peso": 0.0139,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47630,
+      "nome": "1114090.Suco em pó",
+      "nivel": 4,
+      "variacao": 0.8,
+      "peso": 0.0443,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107624,
+      "nome": "1115039.Sardinha em conserva",
+      "nivel": 4,
+      "variacao": 0.94,
+      "peso": 0.0456,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47633,
+      "nome": "1201088.Sorvete",
+      "nivel": 4,
+      "variacao": 0.62,
+      "peso": 0.0624,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7497,
+      "nome": "3102005.Tapete",
+      "nivel": 4,
+      "variacao": 0.88,
+      "peso": 0.0415,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12403,
+      "nome": "3102009.Utensílios de vidro e louça",
+      "nivel": 4,
+      "variacao": 0.9,
+      "peso": 0.0426,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47650,
+      "nome": "5101053.Integração transporte público",
+      "nivel": 4,
+      "variacao": 0.67,
+      "peso": 0.0524,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7645,
+      "nome": "5102009.Acessórios e peças",
+      "nivel": 4,
+      "variacao": 0.21,
+      "peso": 0.1708,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47658,
+      "nome": "7201054.Casa noturna",
+      "nivel": 4,
+      "variacao": 1.0,
+      "peso": 0.0374,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7175,
+      "nome": "1101051.Feijão - mulatinho",
+      "nivel": 4,
+      "variacao": 2.68,
+      "peso": 0.0127,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7184,
+      "nome": "1102.Farinhas, féculas e massas",
+      "nivel": 3,
+      "variacao": 0.06,
+      "peso": 0.4739,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7209,
+      "nome": "1103025.Pepino",
+      "nivel": 4,
+      "variacao": 8.11,
+      "peso": 0.0033,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7245,
+      "nome": "1105005.Couve",
+      "nivel": 4,
+      "variacao": 1.57,
+      "peso": 0.0184,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7262,
+      "nome": "1106011.Laranja - baía",
+      "nivel": 4,
+      "variacao": 5.28,
+      "peso": 0.005,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7290,
+      "nome": "1107081.Cupim",
+      "nivel": 4,
+      "variacao": 2.57,
+      "peso": 0.01,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7296,
+      "nome": "1107090.Lagarto redondo",
+      "nivel": 4,
+      "variacao": 3.98,
+      "peso": 0.0084,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47621,
+      "nome": "1107208.Picanha",
+      "nivel": 4,
+      "variacao": 0.62,
+      "peso": 0.0406,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107642,
+      "nome": "2103048.Areia",
+      "nivel": 4,
+      "variacao": 2.5,
+      "peso": 0.0138,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7508,
+      "nome": "3102035.Flores naturais",
+      "nivel": 4,
+      "variacao": 4.58,
+      "peso": 0.0059,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7590,
+      "nome": "4103005.Agasalho infantil",
+      "nivel": 4,
+      "variacao": 3.8,
+      "peso": 0.0078,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107652,
+      "nome": "4201015.Bolsa",
+      "nivel": 4,
+      "variacao": 0.57,
+      "peso": 0.0603,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47648,
+      "nome": "4201098.Sandália/chinelo",
+      "nivel": 4,
+      "variacao": 0.17,
+      "peso": 0.1942,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7265,
+      "nome": "1106015.Limão",
+      "nivel": 4,
+      "variacao": 1.28,
+      "peso": 0.0174,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7311,
+      "nome": "1108013.Camarão",
+      "nivel": 4,
+      "variacao": 0.93,
+      "peso": 0.0227,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7320,
+      "nome": "1108038.Peixe - pescada",
+      "nivel": 4,
+      "variacao": 1.0,
+      "peso": 0.0245,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47628,
+      "nome": "1114003.Polpa de fruta (congelada)",
+      "nivel": 4,
+      "variacao": 1.23,
+      "peso": 0.0138,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7401,
+      "nome": "1115.Enlatados e conservas",
+      "nivel": 3,
+      "variacao": 0.14,
+      "peso": 0.1615,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12401,
+      "nome": "3101016.Móvel infantil",
+      "nivel": 4,
+      "variacao": 1.07,
+      "peso": 0.0222,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47639,
+      "nome": "3102337.Utensílios para bebê",
+      "nivel": 4,
+      "variacao": 1.05,
+      "peso": 0.0147,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12434,
+      "nome": "3201002.Ar-condicionado",
+      "nivel": 4,
+      "variacao": 0.18,
+      "peso": 0.0964,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7728,
+      "nome": "7101090.Conselho de classe",
+      "nivel": 4,
+      "variacao": 0.43,
+      "peso": 0.0479,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7783,
+      "nome": "8103001.Caderno",
+      "nivel": 4,
+      "variacao": 0.34,
+      "peso": 0.051,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47617,
+      "nome": "1101053.Feijão - macáçar (fradinho)",
+      "nivel": 4,
+      "variacao": 0.88,
+      "peso": 0.0162,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7255,
+      "nome": "1106001.Banana-da-terra",
+      "nivel": 4,
+      "variacao": 0.3,
+      "peso": 0.0172,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7313,
+      "nome": "1108019.Peixe - cavala",
+      "nivel": 4,
+      "variacao": 6.88,
+      "peso": 0.0008,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107616,
+      "nome": "1108031.Peixe - merluza",
+      "nivel": 4,
+      "variacao": 0.95,
+      "peso": 0.013,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7317,
+      "nome": "1108032.Peixe - serra",
+      "nivel": 4,
+      "variacao": 6.93,
+      "peso": 0.0009,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 41129,
+      "nome": "1108087.Peixe - tambaqui",
+      "nivel": 4,
+      "variacao": 0.52,
+      "peso": 0.0198,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12305,
+      "nome": "1109012.Salame",
+      "nivel": 4,
+      "variacao": 1.16,
+      "peso": 0.0081,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7380,
+      "nome": "1112025.Pão de queijo",
+      "nivel": 4,
+      "variacao": 0.16,
+      "peso": 0.0316,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47631,
+      "nome": "1114091.Chá mate (erva mate)",
+      "nivel": 4,
+      "variacao": 0.45,
+      "peso": 0.0257,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7407,
+      "nome": "1115017.Pepino em conserva",
+      "nivel": 4,
+      "variacao": 3.09,
+      "peso": 0.0043,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12397,
+      "nome": "1116013.Sal",
+      "nivel": 4,
+      "variacao": 1.31,
+      "peso": 0.0041,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7422,
+      "nome": "1116026.Fermento",
+      "nivel": 4,
+      "variacao": 1.45,
+      "peso": 0.006,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7424,
+      "nome": "1116041.Vinagre",
+      "nivel": 4,
+      "variacao": 0.52,
+      "peso": 0.0162,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7425,
+      "nome": "1116048.Caldo concentrado",
+      "nivel": 4,
+      "variacao": 0.52,
+      "peso": 0.0108,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7443,
+      "nome": "1201051.Outras bebidas alcoólicas",
+      "nivel": 4,
+      "variacao": 0.72,
+      "peso": 0.0071,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7444,
+      "nome": "1201061.Doces",
+      "nivel": 4,
+      "variacao": 1.12,
+      "peso": 0.0047,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7456,
+      "nome": "2103008.Material de eletricidade",
+      "nivel": 4,
+      "variacao": 0.63,
+      "peso": 0.0121,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7465,
+      "nome": "2104008.Detergente",
+      "nivel": 4,
+      "variacao": 0.05,
+      "peso": 0.1507,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7467,
+      "nome": "2104012.Desinfetante",
+      "nivel": 4,
+      "variacao": 0.14,
+      "peso": 0.0595,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7470,
+      "nome": "2104015.Sabão em barra",
+      "nivel": 4,
+      "variacao": 0.24,
+      "peso": 0.0257,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7498,
+      "nome": "3102006.Cortina",
+      "nivel": 4,
+      "variacao": 0.17,
+      "peso": 0.0714,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7517,
+      "nome": "3103.Cama, mesa e banho",
+      "nivel": 3,
+      "variacao": 0.04,
+      "peso": 0.1696,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7518,
+      "nome": "3103001.Roupa de cama",
+      "nivel": 4,
+      "variacao": 0.04,
+      "peso": 0.1647,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7543,
+      "nome": "3202003.Aparelho de som",
+      "nivel": 4,
+      "variacao": 1.4,
+      "peso": 0.009,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12405,
+      "nome": "3301002.Conserto de refrigerador",
+      "nivel": 4,
+      "variacao": 0.37,
+      "peso": 0.0162,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7563,
+      "nome": "4101005.Agasalho masculino",
+      "nivel": 4,
+      "variacao": 0.52,
+      "peso": 0.0228,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47645,
+      "nome": "4102013.Bermuda/short feminino",
+      "nivel": 4,
+      "variacao": 0.15,
+      "peso": 0.0695,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47646,
+      "nome": "4103008.Bermuda/short infantil",
+      "nivel": 4,
+      "variacao": 0.15,
+      "peso": 0.0491,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47647,
+      "nome": "4201040.Mochila",
+      "nivel": 4,
+      "variacao": 1.28,
+      "peso": 0.0093,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12414,
+      "nome": "6201005.Aparelho ortodôntico",
+      "nivel": 4,
+      "variacao": 0.69,
+      "peso": 0.0189,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7703,
+      "nome": "6301010.Produto para unha",
+      "nivel": 4,
+      "variacao": 2.07,
+      "peso": 0.0036,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7738,
+      "nome": "7201023.Brinquedo",
+      "nivel": 4,
+      "variacao": 0.03,
+      "peso": 0.1982,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47661,
+      "nome": "7201256.Serviço de higiene para animais",
+      "nivel": 4,
+      "variacao": 0.06,
+      "peso": 0.1462,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47618,
+      "nome": "1101079.Milho (em grão)",
+      "nivel": 4,
+      "variacao": -0.14,
+      "peso": 0.0128,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7185,
+      "nome": "1102001.Farinha de arroz",
+      "nivel": 4,
+      "variacao": 0.08,
+      "peso": 0.003,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7188,
+      "nome": "1102008.Fubá de milho",
+      "nivel": 4,
+      "variacao": 0.31,
+      "peso": 0.0074,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7190,
+      "nome": "1102010.Flocos de milho",
+      "nivel": 4,
+      "variacao": 0.45,
+      "peso": 0.0093,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12224,
+      "nome": "1104018.Balas",
+      "nivel": 4,
+      "variacao": -0.09,
+      "peso": 0.0167,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7233,
+      "nome": "1104060.Doce de frutas em pasta",
+      "nivel": 4,
+      "variacao": -2.06,
+      "peso": 0.0012,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47620,
+      "nome": "1104067.Açúcar demerara",
+      "nivel": 4,
+      "variacao": -0.28,
+      "peso": 0.0005,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7246,
+      "nome": "1105006.Couve-flor",
+      "nivel": 4,
+      "variacao": 0.28,
+      "peso": 0.0037,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7257,
+      "nome": "1106004.Abacate",
+      "nivel": 4,
+      "variacao": -3.56,
+      "peso": 0.0009,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7281,
+      "nome": "1106084.Goiaba",
+      "nivel": 4,
+      "variacao": -0.26,
+      "peso": 0.0051,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7288,
+      "nome": "1107031.Carne de carneiro",
+      "nivel": 4,
+      "variacao": 1.04,
+      "peso": 0.0022,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7305,
+      "nome": "1108002.Peixe - anchova",
+      "nivel": 4,
+      "variacao": 7.15,
+      "peso": 0.0005,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7309,
+      "nome": "1108011.Peixe - tainha",
+      "nivel": 4,
+      "variacao": 0.84,
+      "peso": 0.0017,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7323,
+      "nome": "1108045.Caranguejo",
+      "nivel": 4,
+      "variacao": -0.71,
+      "peso": 0.0046,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12300,
+      "nome": "1108049.Peixe - castanha",
+      "nivel": 4,
+      "variacao": 0.35,
+      "peso": 0.0009,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12301,
+      "nome": "1108052.Peixe - palombeta",
+      "nivel": 4,
+      "variacao": 4.03,
+      "peso": 0.0006,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 101466,
+      "nome": "1108072.Peixe - curimatã",
+      "nivel": 4,
+      "variacao": 0.33,
+      "peso": 0.0007,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7333,
+      "nome": "1108088.Peixe - dourada",
+      "nivel": 4,
+      "variacao": -0.56,
+      "peso": 0.0052,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 8874,
+      "nome": "1108096.Peixe - peroá",
+      "nivel": 4,
+      "variacao": -1.12,
+      "peso": 0.0008,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 31694,
+      "nome": "1108112.Peixe - pintado",
+      "nivel": 4,
+      "variacao": -1.85,
+      "peso": 0.0004,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47624,
+      "nome": "1108125.Peixe - aruanã",
+      "nivel": 4,
+      "variacao": -6.22,
+      "peso": 0.0005,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7343,
+      "nome": "1109023.Bacalhau",
+      "nivel": 4,
+      "variacao": 0.17,
+      "peso": 0.0105,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7347,
+      "nome": "1109058.Carne de porco salgada e defumada",
+      "nivel": 4,
+      "variacao": -0.04,
+      "peso": 0.007,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7368,
+      "nome": "1111038.Leite fermentado",
+      "nivel": 4,
+      "variacao": -0.12,
+      "peso": 0.0124,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7376,
+      "nome": "1112017.Pão doce",
+      "nivel": 4,
+      "variacao": 0.03,
+      "peso": 0.0893,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7378,
+      "nome": "1112019.Bolo",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.1484,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7393,
+      "nome": "1114023.Café solúvel",
+      "nivel": 4,
+      "variacao": -0.02,
+      "peso": 0.0107,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107702,
+      "nome": "1115013.Alimento infantil",
+      "nivel": 4,
+      "variacao": 0.26,
+      "peso": 0.0025,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107625,
+      "nome": "1115050.Salsicha em conserva",
+      "nivel": 4,
+      "variacao": -0.53,
+      "peso": 0.0013,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7411,
+      "nome": "1115056.Sopa desidratada",
+      "nivel": 4,
+      "variacao": 2.24,
+      "peso": 0.0019,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107628,
+      "nome": "1115058.Milho-verde em conserva",
+      "nivel": 4,
+      "variacao": 0.16,
+      "peso": 0.0285,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107630,
+      "nome": "1115075.Atum em conserva",
+      "nivel": 4,
+      "variacao": -0.1,
+      "peso": 0.0229,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7420,
+      "nome": "1116022.Colorau",
+      "nivel": 4,
+      "variacao": 1.77,
+      "peso": 0.0007,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7421,
+      "nome": "1116023.Caldo de tucupi",
+      "nivel": 4,
+      "variacao": -0.25,
+      "peso": 0.0008,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47632,
+      "nome": "1201052.Vinho",
+      "nivel": 4,
+      "variacao": 0.12,
+      "peso": 0.0075,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7453,
+      "nome": "2101012.Mudança",
+      "nivel": 4,
+      "variacao": 0.28,
+      "peso": 0.0018,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7455,
+      "nome": "2103005.Ferragens",
+      "nivel": 4,
+      "variacao": -0.43,
+      "peso": 0.0091,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12433,
+      "nome": "2103012.Vidro",
+      "nivel": 4,
+      "variacao": -0.27,
+      "peso": 0.0024,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47634,
+      "nome": "2103038.Madeira e taco",
+      "nivel": 4,
+      "variacao": 0.17,
+      "peso": 0.0123,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107643,
+      "nome": "2103049.Pedras",
+      "nivel": 4,
+      "variacao": -1.45,
+      "peso": 0.0004,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7463,
+      "nome": "2104003.Saco para lixo",
+      "nivel": 4,
+      "variacao": 0.85,
+      "peso": 0.0037,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7471,
+      "nome": "2104016.Esponja de limpeza",
+      "nivel": 4,
+      "variacao": -0.44,
+      "peso": 0.0041,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7477,
+      "nome": "2104041.Papel toalha",
+      "nivel": 4,
+      "variacao": 0.6,
+      "peso": 0.0043,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7481,
+      "nome": "2201003.Carvão vegetal",
+      "nivel": 4,
+      "variacao": -0.8,
+      "peso": 0.0059,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7483,
+      "nome": "2201005.Gás encanado",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.1478,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7520,
+      "nome": "3103003.Roupa de banho",
+      "nivel": 4,
+      "variacao": -0.05,
+      "peso": 0.0049,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7530,
+      "nome": "3201013.Ventilador",
+      "nivel": 4,
+      "variacao": -0.22,
+      "peso": 0.0166,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47640,
+      "nome": "3202008.Videogame (console)",
+      "nivel": 4,
+      "variacao": 1.29,
+      "peso": 0.0027,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107648,
+      "nome": "3301006.Conserto de televisor",
+      "nivel": 4,
+      "variacao": 1.89,
+      "peso": 0.0017,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12406,
+      "nome": "3301015.Conserto de máquina de lavar roupa",
+      "nivel": 4,
+      "variacao": 0.63,
+      "peso": 0.0046,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12408,
+      "nome": "4103001.Uniforme escolar",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.0877,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7591,
+      "nome": "4103007.Vestido infantil",
+      "nivel": 4,
+      "variacao": 0.05,
+      "peso": 0.0518,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7623,
+      "nome": "4401002.Artigos de armarinho",
+      "nivel": 4,
+      "variacao": 0.03,
+      "peso": 0.0096,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7630,
+      "nome": "5101004.Trem",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.0377,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107653,
+      "nome": "5102006.Multa",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.0846,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12435,
+      "nome": "6201007.Fisioterapeuta",
+      "nivel": 4,
+      "variacao": -0.98,
+      "peso": 0.0004,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7715,
+      "nome": "7101001.Costureira",
+      "nivel": 4,
+      "variacao": 0.14,
+      "peso": 0.0139,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7723,
+      "nome": "7101034.Cartório",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.0236,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107668,
+      "nome": "7201063.Jogos de azar",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.4902,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7746,
+      "nome": "7201067.Material de caça e pesca",
+      "nivel": 4,
+      "variacao": -0.56,
+      "peso": 0.0079,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7758,
+      "nome": "7202.Fumo",
+      "nivel": 3,
+      "variacao": 0.0,
+      "peso": 0.5873,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7759,
+      "nome": "7202041.Cigarro",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.5873,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12427,
+      "nome": "8101.Cursos regulares",
+      "nivel": 3,
+      "variacao": 0.0,
+      "peso": 4.7446,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7769,
+      "nome": "8101001.Creche",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.2066,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47663,
+      "nome": "8101002.Pré-escola",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.3587,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107671,
+      "nome": "8101003.Ensino fundamental",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 1.7547,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107672,
+      "nome": "8101004.Ensino médio",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.4417,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107673,
+      "nome": "8101005.Ensino superior",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 1.6888,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107674,
+      "nome": "8101006.Pós-graduação",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.2279,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47664,
+      "nome": "8101008.Educação de jovens e adultos",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.037,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47665,
+      "nome": "8101045.Curso técnico",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.0292,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107676,
+      "nome": "8102004.Revista",
+      "nivel": 4,
+      "variacao": -0.11,
+      "peso": 0.0361,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47666,
+      "nome": "8102007.Livro didático",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.3686,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107679,
+      "nome": "8104001.Curso preparatório",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.0716,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107681,
+      "nome": "8104003.Curso de idioma",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.2923,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107682,
+      "nome": "8104004.Curso de informática",
+      "nivel": 4,
+      "variacao": 0.29,
+      "peso": 0.0013,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47668,
+      "nome": "9101002.Plano de telefonia fixa",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.2078,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47670,
+      "nome": "9101010.Tv por assinatura",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.3797,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107688,
+      "nome": "9101018.Acesso à internet",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.3831,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47671,
+      "nome": "9101115.Serviços de streaming",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 0.0773,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47672,
+      "nome": "9101116.Combo de telefonia, internet e tv por assinatura",
+      "nivel": 4,
+      "variacao": 0.0,
+      "peso": 1.4446,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47619,
+      "nome": "1102061.Macarrão instantâneo",
+      "nivel": 4,
+      "variacao": -0.42,
+      "peso": 0.0319,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7203,
+      "nome": "1103004.Inhame",
+      "nivel": 4,
+      "variacao": -6.53,
+      "peso": 0.0022,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7292,
+      "nome": "1107085.Filé-mignon",
+      "nivel": 4,
+      "variacao": -0.49,
+      "peso": 0.026,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7310,
+      "nome": "1108012.Peixe - sardinha",
+      "nivel": 4,
+      "variacao": -1.79,
+      "peso": 0.0046,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107615,
+      "nome": "1108029.Peixe - cação",
+      "nivel": 4,
+      "variacao": -2.35,
+      "peso": 0.0061,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7397,
+      "nome": "1114085.Outras bebidas alcoólicas",
+      "nivel": 4,
+      "variacao": -0.2,
+      "peso": 0.0364,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7406,
+      "nome": "1115016.Palmito em conserva",
+      "nivel": 4,
+      "variacao": -0.33,
+      "peso": 0.0188,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7416,
+      "nome": "1116001.Leite de coco",
+      "nivel": 4,
+      "variacao": -3.57,
+      "peso": 0.0024,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7440,
+      "nome": "1201048.Cerveja",
+      "nivel": 4,
+      "variacao": -0.02,
+      "peso": 0.2803,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47635,
+      "nome": "2104019.Sabão líquido",
+      "nivel": 4,
+      "variacao": -1.58,
+      "peso": 0.006,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47636,
+      "nome": "2104020.Limpador multiuso",
+      "nivel": 4,
+      "variacao": -0.46,
+      "peso": 0.028,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107645,
+      "nome": "3102010.Utensílios de plástico",
+      "nivel": 4,
+      "variacao": -1.11,
+      "peso": 0.0082,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7539,
+      "nome": "3201050.Chuveiro elétrico",
+      "nivel": 4,
+      "variacao": -0.73,
+      "peso": 0.0079,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7565,
+      "nome": "4101008.Cueca",
+      "nivel": 4,
+      "variacao": -1.62,
+      "peso": 0.007,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7575,
+      "nome": "4102004.Saia",
+      "nivel": 4,
+      "variacao": -1.31,
+      "peso": 0.0089,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7620,
+      "nome": "44.Tecidos e armarinho",
+      "nivel": 2,
+      "variacao": -0.19,
+      "peso": 0.0511,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7621,
+      "nome": "4401.Tecidos e armarinho",
+      "nivel": 3,
+      "variacao": -0.19,
+      "peso": 0.0511,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7622,
+      "nome": "4401001.Tecido",
+      "nivel": 4,
+      "variacao": -0.24,
+      "peso": 0.0415,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12411,
+      "nome": "5102010.Pneu",
+      "nivel": 4,
+      "variacao": -0.04,
+      "peso": 0.2073,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7708,
+      "nome": "6301015.Absorvente higiênico",
+      "nivel": 4,
+      "variacao": -0.13,
+      "peso": 0.1089,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7778,
+      "nome": "8102001.Jornal diário",
+      "nivel": 4,
+      "variacao": -0.28,
+      "peso": 0.04,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107611,
+      "nome": "1104052.Chocolate e achocolatado em pó",
+      "nivel": 4,
+      "variacao": -0.11,
+      "peso": 0.1502,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47623,
+      "nome": "1108092.Peixe - filhote",
+      "nivel": 4,
+      "variacao": -3.72,
+      "peso": 0.0048,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7495,
+      "nome": "3102.Utensílios e enfeites",
+      "nivel": 3,
+      "variacao": -0.05,
+      "peso": 0.3751,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107650,
+      "nome": "4103011.Camisa/camiseta infantil",
+      "nivel": 4,
+      "variacao": -0.11,
+      "peso": 0.1776,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7617,
+      "nome": "4301001.Bijuteria",
+      "nivel": 4,
+      "variacao": -1.04,
+      "peso": 0.0193,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7187,
+      "nome": "1102006.Macarrão",
+      "nivel": 4,
+      "variacao": -0.21,
+      "peso": 0.1397,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7201,
+      "nome": "1103002.Batata-doce",
+      "nivel": 4,
+      "variacao": -0.61,
+      "peso": 0.0416,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7204,
+      "nome": "1103005.Mandioca (aipim)",
+      "nivel": 4,
+      "variacao": -1.62,
+      "peso": 0.0209,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7306,
+      "nome": "1108004.Peixe - corvina",
+      "nivel": 4,
+      "variacao": -1.54,
+      "peso": 0.0199,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7339,
+      "nome": "1109008.Linguiça",
+      "nivel": 4,
+      "variacao": -0.09,
+      "peso": 0.2956,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7412,
+      "nome": "1115057.Azeitona",
+      "nivel": 4,
+      "variacao": -0.96,
+      "peso": 0.0357,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107649,
+      "nome": "4101009.Camisa/camiseta masculina",
+      "nivel": 4,
+      "variacao": -0.05,
+      "peso": 0.6577,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7608,
+      "nome": "4201004.Sapato infantil",
+      "nivel": 4,
+      "variacao": -0.93,
+      "peso": 0.0289,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7619,
+      "nome": "4301004.Relógio de pulso",
+      "nivel": 4,
+      "variacao": -0.57,
+      "peso": 0.047,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7635,
+      "nome": "5101011.Metrô",
+      "nivel": 4,
+      "variacao": -0.38,
+      "peso": 0.0658,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7735,
+      "nome": "7201010.Instrumento musical",
+      "nivel": 4,
+      "variacao": -1.55,
+      "peso": 0.0165,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7399,
+      "nome": "1114087.Vinho",
+      "nivel": 4,
+      "variacao": -0.62,
+      "peso": 0.0606,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7531,
+      "nome": "3201021.Fogão",
+      "nivel": 4,
+      "variacao": -0.23,
+      "peso": 0.154,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107656,
+      "nome": "5102051.Aluguel de veículo",
+      "nivel": 4,
+      "variacao": -1.58,
+      "peso": 0.0239,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7259,
+      "nome": "1106006.Banana - maçã",
+      "nivel": 4,
+      "variacao": -7.85,
+      "peso": 0.0062,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7269,
+      "nome": "1106020.Maracujá",
+      "nivel": 4,
+      "variacao": -5.36,
+      "peso": 0.0095,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7423,
+      "nome": "1116033.Maionese",
+      "nivel": 4,
+      "variacao": -0.81,
+      "peso": 0.0557,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107640,
+      "nome": "2103041.Material hidráulico",
+      "nivel": 4,
+      "variacao": -1.33,
+      "peso": 0.0394,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47638,
+      "nome": "3102001.Artigos de iluminação",
+      "nivel": 4,
+      "variacao": -0.93,
+      "peso": 0.0487,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12409,
+      "nome": "4103031.Conjunto infantil",
+      "nivel": 4,
+      "variacao": -0.36,
+      "peso": 0.1351,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7639,
+      "nome": "5101026.Transporte escolar",
+      "nivel": 4,
+      "variacao": -0.4,
+      "peso": 0.1275,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107683,
+      "nome": "8104005.Autoescola",
+      "nivel": 4,
+      "variacao": -0.99,
+      "peso": 0.0536,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12304,
+      "nome": "1109007.Salsicha",
+      "nivel": 4,
+      "variacao": -1.46,
+      "peso": 0.0412,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7576,
+      "nome": "4102005.Vestido",
+      "nivel": 4,
+      "variacao": -0.22,
+      "peso": 0.2823,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7191,
+      "nome": "1102012.Farinha de trigo",
+      "nivel": 4,
+      "variacao": -1.55,
+      "peso": 0.0476,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7263,
+      "nome": "1106012.Laranja - lima",
+      "nivel": 4,
+      "variacao": -7.96,
+      "peso": 0.0086,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7341,
+      "nome": "1109010.Mortadela",
+      "nivel": 4,
+      "variacao": -1.49,
+      "peso": 0.0445,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12436,
+      "nome": "6201010.Psicólogo",
+      "nivel": 4,
+      "variacao": -1.53,
+      "peso": 0.0477,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7736,
+      "nome": "7201019.Bicicleta",
+      "nivel": 4,
+      "variacao": -0.74,
+      "peso": 0.0881,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107657,
+      "nome": "5104005.Gás veicular",
+      "nivel": 4,
+      "variacao": -1.24,
+      "peso": 0.0622,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7206,
+      "nome": "1103020.Abobrinha",
+      "nivel": 4,
+      "variacao": -7.36,
+      "peso": 0.0122,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7336,
+      "nome": "1109002.Presunto",
+      "nivel": 4,
+      "variacao": -1.02,
+      "peso": 0.0927,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 12402,
+      "nome": "3102007.Utensílios de metal",
+      "nivel": 4,
+      "variacao": -0.65,
+      "peso": 0.1421,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47644,
+      "nome": "4101006.Bermuda/short masculino",
+      "nivel": 4,
+      "variacao": -0.47,
+      "peso": 0.1823,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47662,
+      "nome": "7201266.Cinema, teatro e concertos",
+      "nivel": 4,
+      "variacao": -0.17,
+      "peso": 0.5027,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7221,
+      "nome": "1104004.Açúcar cristal",
+      "nivel": 4,
+      "variacao": -0.91,
+      "peso": 0.1046,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7386,
+      "nome": "1113014.Azeite de oliva",
+      "nivel": 4,
+      "variacao": -1.36,
+      "peso": 0.0707,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7335,
+      "nome": "1109.Carnes e peixes industrializados",
+      "nivel": 3,
+      "variacao": -0.19,
+      "peso": 0.6006,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 109464,
+      "nome": "6102.Produtos óticos",
+      "nivel": 3,
+      "variacao": -0.53,
+      "peso": 0.2397,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47653,
+      "nome": "6102012.Óculos de grau",
+      "nivel": 4,
+      "variacao": -0.53,
+      "peso": 0.2397,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7459,
+      "nome": "2103014.Tinta",
+      "nivel": 4,
+      "variacao": -0.47,
+      "peso": 0.2947,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7220,
+      "nome": "1104003.Açúcar refinado",
+      "nivel": 4,
+      "variacao": -1.48,
+      "peso": 0.1038,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7724,
+      "nome": "7101036.Despachante",
+      "nivel": 4,
+      "variacao": -1.76,
+      "peso": 0.083,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7396,
+      "nome": "1114084.Cerveja",
+      "nivel": 4,
+      "variacao": -0.43,
+      "peso": 0.4078,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107609,
+      "nome": "1104023.Chocolate em barra e bombom",
+      "nivel": 4,
+      "variacao": -0.75,
+      "peso": 0.2503,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7489,
+      "nome": "3101002.Móvel para sala",
+      "nivel": 4,
+      "variacao": -0.56,
+      "peso": 0.3757,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7542,
+      "nome": "3202001.Televisor",
+      "nivel": 4,
+      "variacao": -0.59,
+      "peso": 0.3484,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7258,
+      "nome": "1106005.Banana - d'água",
+      "nivel": 4,
+      "variacao": -2.01,
+      "peso": 0.1127,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7267,
+      "nome": "1106018.Mamão",
+      "nivel": 4,
+      "variacao": -2.24,
+      "peso": 0.1234,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7642,
+      "nome": "5102004.Emplacamento e licença",
+      "nivel": 4,
+      "variacao": -0.11,
+      "peso": 2.6236,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7219,
+      "nome": "1104.Açúcares e derivados",
+      "nivel": 3,
+      "variacao": -0.49,
+      "peso": 0.79,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47660,
+      "nome": "7201095.Pacote turístico",
+      "nivel": 4,
+      "variacao": -0.86,
+      "peso": 0.5083,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47659,
+      "nome": "7201090.Hospedagem",
+      "nivel": 4,
+      "variacao": -0.69,
+      "peso": 0.6585,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7266,
+      "nome": "1106017.Maçã",
+      "nivel": 4,
+      "variacao": -3.25,
+      "peso": 0.1753,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7389,
+      "nome": "1114.Bebidas e infusões",
+      "nivel": 3,
+      "variacao": -0.31,
+      "peso": 1.9673,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7287,
+      "nome": "1107018.Carne de porco",
+      "nivel": 4,
+      "variacao": -1.93,
+      "peso": 0.3296,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47649,
+      "nome": "5101051.Transporte por aplicativo",
+      "nivel": 4,
+      "variacao": -2.17,
+      "peso": 0.301,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7349,
+      "nome": "1110.Aves e ovos",
+      "nivel": 3,
+      "variacao": -0.56,
+      "peso": 1.2546,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7730,
+      "nome": "7201.Recreação",
+      "nivel": 3,
+      "variacao": -0.21,
+      "peso": 3.356,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 47656,
+      "nome": "72.Recreação e fumo",
+      "nivel": 2,
+      "variacao": -0.18,
+      "peso": 3.9433,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7628,
+      "nome": "5101001.Ônibus urbano",
+      "nivel": 4,
+      "variacao": -1.13,
+      "peso": 1.1288,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 107618,
+      "nome": "1110010.Frango em pedaços",
+      "nivel": 4,
+      "variacao": -2.14,
+      "peso": 0.6351,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7392,
+      "nome": "1114022.Café moído",
+      "nivel": 4,
+      "variacao": -2.3,
+      "peso": 0.6096,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7634,
+      "nome": "5101010.Passagem aérea",
+      "nivel": 4,
+      "variacao": -14.45,
+      "peso": 0.7837,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    },
+    {
+      "cat_id": 7627,
+      "nome": "5101.Transporte público",
+      "nivel": 3,
+      "variacao": -4.0,
+      "peso": 3.2339,
+      "fonte": "IBGE SIDRA tabela 7060 var 63,66 periodo 202604"
+    }
+  ],
+  "difusao": 65.25,
+  "difusao_anterior": 67.37,
+  "nucleo_12m": 4.376,
+  "nucleo_12m_anterior": 4.3864,
+  "projecao_focus": null,
+  "url_ibge": null,
+  "variacao_mesmo_mes_ano_anterior": 0.43,
+  "fonte_variacao": "IBGE SIDRA tabela 7060 var 63 periodo 202604",
+  "fonte_acum": "IBGE SIDRA tabela 7060 var 2265 periodo 202604"
+}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nota de Inflação — IPCA / IPCA-15</title>
+<meta name="description" content="Monta a nota de WhatsApp do IPCA e do IPCA-15 a partir das APIs do IBGE e do Banco Central.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topo">
+  <h1>Nota de Inflação</h1>
+  <p class="sub">IPCA e IPCA-15 — dados do IBGE e do Banco Central, nota montada automaticamente</p>
+</header>
+
+<main>
+  <form id="form-gerar" class="cartao">
+    <fieldset class="campo">
+      <legend>Indicador</legend>
+      <div class="opcoes">
+        <label class="opcao">
+          <input type="radio" name="indicador" value="IPCA" checked>
+          <span>IPCA</span>
+        </label>
+        <label class="opcao">
+          <input type="radio" name="indicador" value="IPCA-15">
+          <span>IPCA-15</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <div class="campo">
+      <label for="mes">Mês de referência</label>
+      <input type="month" id="mes" name="mes" required>
+    </div>
+
+    <button type="submit" id="btn-gerar">Gerar nota</button>
+  </form>
+
+  <div id="loading" class="aviso" hidden>
+    <span class="spinner" aria-hidden="true"></span>
+    Consultando IBGE e Banco Central…
+  </div>
+
+  <div id="erro-bloco" class="aviso erro" hidden>
+    <strong>Não foi possível gerar a nota.</strong>
+    <span id="erro-msg"></span>
+  </div>
+
+  <section id="resultado" class="cartao" hidden>
+    <div class="cabecalho-resultado">
+      <h2>Nota</h2>
+      <button type="button" id="btn-copiar">Copiar</button>
+    </div>
+    <pre id="nota-texto"></pre>
+
+    <details class="proveniencia">
+      <summary>Proveniência dos números</summary>
+      <table id="provenencia"></table>
+      <p class="rodape-prov">
+        Cada número da nota vem diretamente de um campo devolvido pela API.
+        Nenhuma parte do texto é gerada por IA.
+      </p>
+    </details>
+  </section>
+</main>
+
+<footer class="rodape">
+  <p>
+    Fontes: <a href="https://servicodados.ibge.gov.br/api/docs/agregados" target="_blank" rel="noopener">IBGE — API de Agregados (SIDRA)</a>
+    e <a href="https://dadosabertos.bcb.gov.br/" target="_blank" rel="noopener">Banco Central — SGS</a>.
+  </p>
+  <p>
+    A página consulta as APIs direto do seu navegador e não envia nada para
+    nenhum servidor. O texto é exibido para cópia manual.
+  </p>
+</footer>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

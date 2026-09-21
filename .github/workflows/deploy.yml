@@ -1,0 +1,66 @@
+name: Gate e publicação
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# Permite ao job de publicação escrever no GitHub Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Uma publicação por vez; não cancela a que já está em andamento.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  # ---------------------------------------------------------------------
+  # Barreira: o site só é publicado se a nota do JS continuar idêntica à
+  # do Python validado. Nenhum destes passos toca a rede — usa as fixtures
+  # commitadas, para que uma instabilidade do IBGE não derrube a publicação.
+  # ---------------------------------------------------------------------
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Gate de equivalencia Python vs JavaScript
+        run: node tests/equivalencia/gate.mjs
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias do Python
+        run: pip install -r requirements.txt
+
+      - name: Testes unitarios do Python
+        run: python -m pytest -q -m "not integration"
+
+  # ---------------------------------------------------------------------
+  # Publicação no GitHub Pages — só roda em push na main e só depois do gate.
+  # ---------------------------------------------------------------------
+  publicar:
+    needs: gate
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4
