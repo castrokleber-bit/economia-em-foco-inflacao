@@ -58,12 +58,14 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      # Exige um passo manual, uma única vez, antes do primeiro deploy:
+      #   Settings -> Pages -> Source: "GitHub Actions"
+      # Sem isso o job falha em "Get Pages site failed ... Not Found".
+      # O parâmetro `enablement: true` não substitui esse passo: criar o site
+      # pela API pede escopo `administration: write`, que não está entre as
+      # permissões concedíveis ao GITHUB_TOKEN — a tentativa termina em
+      # "Create Pages site failed - Resource not accessible by integration".
       - uses: actions/configure-pages@v5
-        # Habilita o Pages na primeira execução, em vez de exigir que alguém
-        # troque a Source para "GitHub Actions" no Settings. Sem isto o job
-        # falha com "Get Pages site failed ... Not Found".
-        with:
-          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site

@@ -116,4 +116,9 @@ docs/              especificação, fontes de dados, identidade visual
 ## Publicação
 
 `main` → GitHub Actions roda o gate → publica `site/` no GitHub Pages.
-Configuração em Settings → Pages → Source: **GitHub Actions**.
+
+Antes do primeiro deploy é preciso, **uma única vez**, ir em
+Settings → Pages → Source e escolher **GitHub Actions**. Esse passo não dá
+para automatizar no workflow: criar o site pela API exige escopo
+`administration: write`, que não está entre as permissões concedíveis ao
+`GITHUB_TOKEN`.
